@@ -1,0 +1,188 @@
+/* Faq */
+.faq-according .elementor-accordion-item {
+   border-radius: 4px !important;
+   background: #FFF !important;
+   box-shadow: 0px 8px 20px 0px rgba(182, 182, 182, 0.40) !important;
+      margin: 20px 0 !important;
+}
+
+/* Contact form */
+.contact-form__wrapper{
+  border-radius: 10px;
+background: #ffffff;
+   padding: 30px;
+box-shadow: 0px 8px 20px 0px rgba(182, 182, 182, 0.40);
+}
+.web-design-development-form-wrapper p {
+   margin: 0;
+}
+.contact-form__wrapper label {
+   display: block;
+   margin-bottom: 5px;
+}
+.contact-form__wrapper input[type="text"]:focus,
+.contact-form__wrapper input[type="email"]:focus,.contact-form__wrapper textarea:focus{
+  border-color:#652FF2 !important;
+}
+.contact-form__wrapper input[type="text"],
+.contact-form__wrapper input[type="email"],
+.contact-form__wrapper select,
+.contact-form__wrapper textarea {
+   width: 100%;
+     margin-top: 10px !important;
+   padding: 15px !important;
+   border: 1px solid #F5F9FA !important;
+   border-radius: 5px !important;
+   margin-bottom: 20px;
+   box-sizing: border-box;
+   background: #F5F9FA !important;
+}
+.contact-form__wrapper textarea {
+  height:10rem;
+}
+.contact-form__wrapper input[type="submit"]  {
+   background-color: #714AFF !important;
+   color: white;
+   border: none !important;
+   padding: 15px 20px !important;
+   cursor: pointer;
+   border-radius: 4px !important;
+   width: 160px !important;
+}
+
+.contact-form__wrapper input[type="submit"]:hover {
+   background-color: #5b4acb;
+}
+
+/* Contact Card */
+.contact__card:hover .contact__card-button .elementor-button-content-wrapper {
+   color: #F75F18 !important;
+}
+.contact__card-button .elementor-button-icon{
+  margin-top:3px;
+}
+.about__counter .elementor-counter-title {
+   margin-top: -14px !important;
+  justify-content:start !important;
+}
+/* Contact form - web design and development */
+.web-design-development-form-wrapper {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   column-gap: 20px;
+    row-gap: 10px;
+
+}
+.web-design-and-dev label {
+   display: block !important;
+   margin-bottom: 10px !important;
+}
+
+.web-design-and-dev input, .web-design-and-dev select, .web-design-and-dev textarea {
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05) !important;
+   width: 100% !important;
+   padding: 10px !important;
+   border-radius: 3px !important;
+   border: 1px solid var(--White-100, #EFEFEF) !important;
+      background: transparent !important;
+      margin-top: 10px !important;
+}
+.web-design-and-dev textarea{
+  height:10rem;
+}
+.web-design-and-dev input:focus, .web-design-and-dev select:focus, .wpcf7-form textarea:focus{
+  border-color:#652FF2 !important;
+}
+.web-design-and-dev input[type="submit"] {
+   background-color: #714AFF !important;
+   color: white;
+   border: none !important;
+   padding: 15px 20px !important;
+   cursor: pointer;
+   border-radius: 4px !important;
+   width: 160px !important;
+}
+.web-design-and-dev input[type="submit"]:focus{
+  border:none !important;
+  outline:none !important;
+}
+
+.wpcf7-form input[type="submit"]:hover {
+   background-color: #45a049;
+}
+
+
+/* According */
+.service__according .elementor-accordion-item{
+    border-right: none !important;
+   border-left: none !important;
+}
+.service__according .elementor-accordion-item:first-child{
+    border-top: none !important;
+}
+.service__according .elementor-accordion-item:last-child{
+    border-bottom: none !important;
+}
+
+/* Service Card */
+.service-card__image-box-wrapper .elementor-image-box-wrapper{
+  align-items:center !important;
+}
+
+/* Theme pricing card */
+.home__product-card_price h2{
+   background: #F9813E;
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: #fff;
+  box-shadow: 0px 8px 14px 0px rgba(173, 75, 20, 0.15);
+}
+.home__benefits-card h3{
+  margin:0;
+}
+/* Footer Newsletter input style */
+.input-container {
+   position: relative;
+   width: 300px;
+}
+.input-container input {
+   width: 100%;
+   padding: 10px 40px 10px 30px !important;
+   border: none !important;
+   border-radius: 0 !important;
+   outline: none !important;
+   background-color: transparent !important;
+   color: #fff !important;
+   font-size: 16px !important;
+   border-bottom: 2px solid #DCDCDC !important;
+}
+.input-container input::placeholder {
+   color: #aaa;
+}
+.input-container img {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   color: #aaa;
+}
+.input-container #footer-newsletter-envalop {
+   left: 0;
+}
+img#footer-newsletter-submit-arrow {
+   right: 0;
+}
+img#footer-newsletter-submit-arrow:hover {
+   background: transparent;
+   border: none;
+  right: 0;
+   cursor: pointer;
+}
+
+/* Footer template menu */
+ul#menu-1-91c857c li a {
+   padding: 10px 0;
+}
