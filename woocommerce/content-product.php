@@ -32,9 +32,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
          </figure>
          <div class="product-card__meta">
             <div class="product-card__meta_price">$17</div>
-            <h3 class="product-card__meta_title">
-               <?php echo woocommerce_template_loop_product_title(); ?>
-            </h3>
+            <?php woocommerce_template_loop_product_title(); ?>
             <ul class="product-card__meta_category-list">
                <li>Company,</li>
                <li>Industry,</li>
