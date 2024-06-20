@@ -28,10 +28,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
    <div <?php wc_product_class( '', $product ); ?>>
       <div class="product-card">
          <figure class="product-card__image-wrapper">
-            <img
-               class="w-100"
-               src="<?php woocommerce_template_loop_product_thumbnail(); ?>"
-               alt="Theme">
+            <?php echo woocommerce_template_loop_product_thumbnail('', '100%'); ?>
          </figure>
          <div class="product-card__meta">
             <div class="product-card__meta_price">$17</div>
