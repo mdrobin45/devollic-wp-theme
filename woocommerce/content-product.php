@@ -31,7 +31,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
             <img
                class="w-100"
                src="<?php woocommerce_template_loop_product_thumbnail(); ?>"
-               alt="Theme" />
+               alt="Theme">
          </figure>
          <div class="product-card__meta">
             <div class="product-card__meta_price">$17</div>
