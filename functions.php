@@ -143,6 +143,8 @@ add_action( 'widgets_init', 'devollic_widgets_init' );
 function devollic_scripts() {
 	wp_enqueue_style( 'devollic-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'devollic-style', 'rtl', 'replace' );
+   wp_enqueue_style( 'bootstrap-css', get_template_directory_uri().'/assets/css/bootstrap.min.css', [], '5.3.3', 'all' );
+   wp_enqueue_style( 'product-archive-css', get_template_directory_uri().'/assets/css/product-archive.css', [], '1.0.0', 'all' );
    wp_enqueue_style( 'custom_css', get_template_directory_uri().'/assets/css/custom.css', [], '1.0.0', 'all' );
 
 	wp_enqueue_script( 'devollic-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
