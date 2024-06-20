@@ -1,5 +1,4 @@
 <?php 
-global $product;
 
 // Remove default WooCommerce product title function
 remove_action('woocommerce_shop_loop_item_title','woocommerce_template_loop_product_title',10);
@@ -19,6 +18,8 @@ remove_action("woocommerce_after_shop_loop_item_title","woocommerce_template_loo
 add_action('woocommerce_shop_loop_item_title','devollic_add_product_price_class',10);
 
 function devollic_add_product_price_class(){
+   global $product;
+   
    if($price_html = $product -> get_price_html()): ?>
       <div class='product-card__meta_price'><?php echo $price_html; ?></div>
    <?php endif;
