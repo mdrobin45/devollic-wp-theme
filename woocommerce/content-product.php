@@ -30,7 +30,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
          <figure class="product-card__image-wrapper">
             <img
                class="w-100"
-               src="<?php echo woocommerce_template_loop_product_thumbnail(); ?>"
+               src="<?php woocommerce_template_loop_product_thumbnail(); ?>"
                alt="Theme" />
          </figure>
          <div class="product-card__meta">
