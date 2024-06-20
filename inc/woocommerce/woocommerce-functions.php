@@ -13,6 +13,7 @@ function devollic_add_product_title_class(){
 
 // Remove ratings
 remove_action("woocommerce_after_shop_loop_item_title","woocommerce_template_loop_rating",5);
+remove_action("woocommerce_after_shop_loop_item_title","woocommerce_template_loop_price",10);
 
 // Add custom product price
 add_action('woocommerce_shop_loop_item_title','devollic_add_product_price_class',10);
