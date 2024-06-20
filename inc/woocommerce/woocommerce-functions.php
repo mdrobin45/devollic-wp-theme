@@ -24,7 +24,7 @@ function devollic_add_product_price_class(){
        return; 
    }
 
-   $price_html = $product->get_price_html();
+   $price_html = $product->get_regular_price();
 
    if ( $price_html ) {
        echo "<div class='product-card__meta_price'>{$price_html}</div>";
