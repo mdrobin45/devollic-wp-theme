@@ -31,8 +31,25 @@ if ( empty( $product ) || ! $product->is_visible() ) {
             <?php echo woocommerce_template_loop_product_thumbnail('', '100%'); ?>
          </figure>
          <div class="product-card__meta">
-            <div class="product-card__meta_price">$17</div>
-            <?php woocommerce_template_loop_product_title(); ?>
+            
+         <?php
+         /**
+          * Hook: woocommerce_after_shop_loop_item_title.
+          *
+          * @hooked woocommerce_template_loop_rating - 5
+          * @hooked woocommerce_template_loop_price - 10
+          */
+
+         do_action( 'woocommerce_after_shop_loop_item_title' );
+            
+            /**
+            * Hook: woocommerce_shop_loop_item_title.
+            *
+            * @hooked woocommerce_template_loop_product_title - 10
+            */
+            do_action( 'woocommerce_shop_loop_item_title' );
+
+            ?>
             <ul class="product-card__meta_category-list">
                <li>Company,</li>
                <li>Industry,</li>
