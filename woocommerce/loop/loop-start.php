@@ -20,4 +20,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <div class="col-12 col-md-4">
-<div class="procuct-card">
+
