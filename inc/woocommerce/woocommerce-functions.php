@@ -20,6 +20,6 @@ add_action('woocommerce_shop_loop_item_title','devollic_add_product_price_class'
 
 function devollic_add_product_price_class(){
    if($price_html = $product -> get_price_html()): ?>
-      <div class='product-card__meta_price'><?php echo $price_html?></div>
+      <div class='product-card__meta_price'><?php echo $price_html; ?></div>
    <?php endif;
 }
