@@ -16,7 +16,6 @@
  */
 
 defined( 'ABSPATH' ) || exit;
-echo "Test Robin";
 get_header( 'shop' );
 
 /**
