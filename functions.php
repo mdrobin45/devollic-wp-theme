@@ -180,5 +180,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-
+// Woocommerce functions
+remove_action('woocommerce_before_main_content','woocommerce_breadcrumb',20);
 	
