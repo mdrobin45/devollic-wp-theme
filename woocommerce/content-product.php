@@ -24,24 +24,26 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<div <?php wc_product_class( '', $product ); ?>>
-   <div class="product-card">
-      <figure class="product-card__image-wrapper">
-         <img
-            class="w-100"
-            src="<?php echo woocommerce_template_loop_product_thumbnail(); ?>"
-            alt="Theme" />
-      </figure>
-      <div class="product-card__meta">
-         <div class="product-card__meta_price">$17</div>
-         <h3 class="product-card__meta_title">
-            <?php echo woocommerce_template_loop_product_title(); ?>
-         </h3>
-         <ul class="product-card__meta_category-list">
-            <li>Company,</li>
-            <li>Industry,</li>
-            <li>Agency Theme</li>
-         </ul>
+<div class="col-12 col-md-4">
+   <div <?php wc_product_class( '', $product ); ?>>
+      <div class="product-card">
+         <figure class="product-card__image-wrapper">
+            <img
+               class="w-100"
+               src="<?php echo woocommerce_template_loop_product_thumbnail(); ?>"
+               alt="Theme" />
+         </figure>
+         <div class="product-card__meta">
+            <div class="product-card__meta_price">$17</div>
+            <h3 class="product-card__meta_title">
+               <?php echo woocommerce_template_loop_product_title(); ?>
+            </h3>
+            <ul class="product-card__meta_category-list">
+               <li>Company,</li>
+               <li>Industry,</li>
+               <li>Agency Theme</li>
+            </ul>
+         </div>
       </div>
    </div>
 </div>

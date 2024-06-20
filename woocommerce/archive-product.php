@@ -44,7 +44,7 @@ if ( woocommerce_product_loop() ) {
                <h2>Sidebar</h2>
             </div>
             <div class="col-12 col-md-9">
-               <div class="row gy-4">
+               
    <?php
 	/**
 	 * Hook: woocommerce_before_shop_loop.
@@ -71,7 +71,6 @@ if ( woocommerce_product_loop() ) {
 
 	woocommerce_product_loop_end();
    ?>
-   </div>
    </div>
    </div>
    </div>
