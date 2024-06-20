@@ -38,7 +38,13 @@ do_action( 'woocommerce_shop_loop_header' );
 
 if ( woocommerce_product_loop() ) {
    ?>
-      <div class="custom-product-grid">
+      <div class="container">
+         <div class="row">
+            <div class="col-12 col-md-3">
+               <h2>Sidebar</h2>
+            </div>
+            <div class="col-12 col-md-9">
+               <div class="row gy-4">
    <?php
 	/**
 	 * Hook: woocommerce_before_shop_loop.
@@ -65,6 +71,10 @@ if ( woocommerce_product_loop() ) {
 
 	woocommerce_product_loop_end();
    ?>
+   </div>
+   </div>
+   </div>
+   </div>
    </div>
    <?php
 
