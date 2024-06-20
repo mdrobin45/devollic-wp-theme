@@ -38,7 +38,9 @@ do_action( 'woocommerce_before_main_content' );
 do_action( 'woocommerce_shop_loop_header' );
 
 if ( woocommerce_product_loop() ) {
-
+   ?>
+      <div class="custom-product-grid">
+   <?php
 	/**
 	 * Hook: woocommerce_before_shop_loop.
 	 *
@@ -64,6 +66,9 @@ if ( woocommerce_product_loop() ) {
 	}
 
 	woocommerce_product_loop_end();
+   ?>
+   </div>
+   <?php
 
 	/**
 	 * Hook: woocommerce_after_shop_loop.
