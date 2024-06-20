@@ -191,5 +191,5 @@ remove_action('woocommerce_before_shop_loop','woocommerce_catalog_ordering',30);
 
 // Path: inc/woocommerce/woocommerce-functions.php
 if(class_exists('WooCommerce')){
-   include get_template_directory().'/inc/woocommerce/woocommerce-functions.php';
+   include get_template_directory_uri().'/inc/woocommerce/woocommerce-functions.php';
 }
