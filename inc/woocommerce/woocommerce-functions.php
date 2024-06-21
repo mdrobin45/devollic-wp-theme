@@ -36,7 +36,7 @@ function devollic_add_product_price_class(){
 // Show thumbnail
 remove_action('woocommerce_before_shop_loop_item_title','woocommerce_template_loop_product_thumbnail',10);
 
-add_action('woocommerce_before_shop_loop_item_title','devollic_add_product_thumbnail');
+add_action('woocommerce_before_shop_loop_item_title','devollic_add_product_thumbnail',10);
 
 function devollic_add_product_thumbnail(){global $product; echo $product->get_image_id(); ?>
    <figure class="product-card__image-wrapper">
