@@ -38,12 +38,14 @@ remove_action('woocommerce_before_shop_loop_item_title','woocommerce_template_lo
 
 add_action('woocommerce_before_shop_loop_item_title','devollic_add_product_thumbnail',10);
 
-function devollic_add_product_thumbnail(){global $product; echo $product->get_image_id(); ?>
+function devollic_add_product_thumbnail(){
+   global $product;
+   $image_url = wp_get_attachment_image_url( $product->get_image_url());
+   ?>
    <figure class="product-card__image-wrapper">
       <img
          class="w-100"
-         src="https://i.ibb.co/X48qZJQ/shopify-theme-2.png"
+         src="<?php echo $image_url; ?>"
          alt="Theme" />
    </figure>
-
 <?php }
