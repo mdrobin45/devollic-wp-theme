@@ -40,7 +40,7 @@ add_action('woocommerce_before_shop_loop_item_title','devollic_add_product_thumb
 
 function devollic_add_product_thumbnail(){
    global $product;
-   $image_url = wp_get_attachment_image_url( $product->get_image_url());
+   $image_url = wp_get_attachment_image_url( $product->get_image_url(),'thumbnail');
    ?>
    <figure class="product-card__image-wrapper">
       <img
