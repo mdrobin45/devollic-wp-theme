@@ -21,7 +21,7 @@ function devollic_add_product_price_class(){
    global $product;
 
    if ( ! $product ) {
-       return; 
+       return;
    }
 
    $price_html = $product->get_regular_price();
@@ -31,3 +31,19 @@ function devollic_add_product_price_class(){
        echo "<div class='product-card__meta_price'>".wc_price($price_html)."</div>";
    }
 }
+
+
+// Show thumbnail
+remove_action('woocommerce_before_shop_loop_item_title','woocommerce_template_loop_product_thumbnail',10);
+
+add_action('woocommerce_before_shop_loop_item_title','devollic_add_product_thumbnail');
+
+function devollic_add_product_thumbnail(){global $product; echo $product->get_image_id(); ?>
+   <figure class="product-card__image-wrapper">
+      <img
+         class="w-100"
+         src="https://i.ibb.co/X48qZJQ/shopify-theme-2.png"
+         alt="Theme" />
+   </figure>
+
+<?php }
