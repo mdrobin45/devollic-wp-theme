@@ -41,10 +41,22 @@ add_action('woocommerce_before_shop_loop_item_title','devollic_add_product_thumb
 
 function devollic_add_product_thumbnail(){
    global $product;
+
+   if(!$product){
+      return;
+   }
+
    $image_url = wp_get_attachment_image_url( $product->get_image_id(),'thumbnail');
-   ?>
-   <div class="screen">
-      <img
-      src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr($product->get_name()); ?>" />
-   </div>
-<?php }
+   
+   if($image_url){
+      echo "<div class='screen'>";
+      echo "<img
+      src=".esc_url( $image_url )." alt=".esc_attr($product->get_name())."/>";
+      echo "</div>";
+   }else{
+      echo "<div class='screen'>";
+      echo "<img
+      src=".esc_url(wc_placeholder_img_src())." alt=".esc_attr__('Placeholder','devollic')."/>";
+      echo "</div>";
+   }
+}
