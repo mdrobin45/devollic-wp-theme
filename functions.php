@@ -193,3 +193,5 @@ remove_action('woocommerce_before_shop_loop','woocommerce_catalog_ordering',30);
 if(class_exists('WooCommerce')){
    require get_template_directory().'/inc/woocommerce/woocommerce-functions.php';
 }
+
+// Test
