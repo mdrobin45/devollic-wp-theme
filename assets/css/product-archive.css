@@ -78,34 +78,3 @@ ul.product-card__meta_category-list li {
   padding:0;
 }
 
-/* .screen {
-	display: block;
-   border-top-right-radius: 10px;
-   border-top-left-radius: 10px;
-	height: 350px;
-	overflow: hidden;
-	position: relative;
-	margin: 0 auto;
-}
-.screen img {
-	bottom: -225%;
-	width: 100%;
-	height: auto;
-	position: absolute;
-	z-index: 0;
-  margin:0;
-  padding:0;
-	-webkit-transition: top 11s;
-	-moz-transition: top 1s;
-	-ms-transition: top 1s;
-	-o-transition: top 1s;
-	transition: bottom 1s;
-}
-.screen:hover img {
-  bottom: 0;
-  -webkit-transition: all 1s;
-  -moz-transition: all 1s;
-  -ms-transition: all 1s;
-  -o-transition: all 1s;
-  transition: all 1s;
-} */
