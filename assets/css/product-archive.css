@@ -3,6 +3,10 @@ figure.product-card__image-wrapper {
    height: 100%;
    width: 100%;
 }
+figure.product-card__image-wrapper img{
+   border-top-right-radius: 10px;
+   border-top-left-radius: 10px;
+}
 .product-card{
    box-shadow: 0px 2px 20px 0px rgba(182, 182, 182, 0.4);
 }
@@ -13,6 +17,8 @@ figure.product-card__image-wrapper {
    background: #fff;
    box-shadow: 0px 8px 20px 0px rgba(182, 182, 182, 0.40);
    padding: 16px;
+   border-bottom-left-radius: 10px;
+   border-bottom-right-radius: 10px;
 }
 .product-card__meta_title {
    font-family: "Public Sans" !important;

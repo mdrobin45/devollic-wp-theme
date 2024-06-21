@@ -45,7 +45,7 @@ function devollic_add_product_thumbnail(){
    <figure class="product-card__image-wrapper">
       <img
          class="w-100"
-         src="<?php echo $image_url; ?>"
+         src="<?php echo esc_url( $image_url ); ?>"
          alt="Theme" />
    </figure>
 <?php }
