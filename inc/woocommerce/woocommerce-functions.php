@@ -46,7 +46,7 @@ function devollic_add_product_thumbnail(){
       return;
    }
 
-   $image_url = wp_get_attachment_image_url( $product->get_image_id(),'thumbnail');
+   $image_url = wp_get_attachment_image_url( $product->get_image_id(),'full');
    
    if($image_url){
       echo "<div class='screen'>";
