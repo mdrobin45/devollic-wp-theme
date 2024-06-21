@@ -60,11 +60,11 @@ ul.product-card__meta_category-list li {
 /* Scroll image on hover - product */
 .screen {
 	display: block;
+   border-top-right-radius: 10px;
+   border-top-left-radius: 10px;
 	height: 350px;
 	overflow: hidden;
 	position: relative;
-	border: 2px solid #b3b3b3;
-	border-radius: 1px;
 	margin: 0 auto;
 }
 .screen img {

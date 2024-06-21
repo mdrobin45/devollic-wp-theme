@@ -17,7 +17,7 @@ let $ = jQuery;
          var duration = $(this).attr("data-duration");
 
          if (!duration) {
-            duration = 5000;
+            duration = 2000;
          }
 
          $ele.animate(
