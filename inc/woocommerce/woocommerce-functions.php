@@ -45,6 +45,6 @@ function devollic_add_product_thumbnail(){
    ?>
    <div class="screen">
       <img
-      src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr($product->get_name()); ?>" />/>
+      src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr($product->get_name()); ?>" />
    </div>
 <?php }
