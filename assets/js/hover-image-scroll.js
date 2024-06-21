@@ -1,3 +1,4 @@
+let $ = jQuery;
 (function ($) {
    $.fn.scrollImage = function () {
       var imageScrollGetHeight = function ($this) {
