@@ -43,10 +43,8 @@ function devollic_add_product_thumbnail(){
    global $product;
    $image_url = wp_get_attachment_image_url( $product->get_image_id(),'thumbnail');
    ?>
-   <figure class="product-card__image-wrapper">
+   <div class="screen">
       <img
-         class="w-100"
-         src="<?php echo esc_url( $image_url ); ?>"
-         alt="Theme" />
-   </figure>
+      src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr($product->get_name()); ?>" />/>
+   </div>
 <?php }
