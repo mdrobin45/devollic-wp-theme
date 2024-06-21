@@ -3,26 +3,36 @@ figure.product-card__image-wrapper {
    height: 100%;
    width: 100%;
 }
+figure.product-card__image-wrapper img{
+   border-top-right-radius: 10px;
+   border-top-left-radius: 10px;
+}
+.product-card{
+   box-shadow: 0px 2px 20px 0px rgba(182, 182, 182, 0.4);
+}
+
 .product-card__meta {
    position: relative;
    border-radius: 10px 10px 0px 0px;
    background: #fff;
    box-shadow: 0px 8px 20px 0px rgba(182, 182, 182, 0.40);
    padding: 16px;
+   border-bottom-left-radius: 10px;
+   border-bottom-right-radius: 10px;
 }
-h3.procuct-card__meta_title {
-   font-family: "Public Sans";
-   font-size: 18px;
-   font-style: normal;
-   color: #3D3D3D;
-   font-weight: 600;
+.product-card__meta_title {
+   font-family: "Public Sans" !important;
+   font-size: 18px !important;
+   font-style: normal !important;
+   color: #3D3D3D !important;
+   font-weight: 600 !important;
 }
-ul.procuct-card__meta_category-list {
+ul.product-card__meta_category-list {
    margin: 0;
    padding: 0;
    display: flex;
 }
-ul.procuct-card__meta_category-list li {
+ul.product-card__meta_category-list li {
    list-style: none;
    font-family: Roboto;
    font-size: 14px;
@@ -33,16 +43,69 @@ ul.procuct-card__meta_category-list li {
 .product-card__meta_price {
    position: absolute;
    right: 23px;
-   top: -19px;
+   top: -40px;
    display: flex;
-   width: 40px;
+   width: 70px;
    border-radius: 100px;
    background: var(--Orange-400, #F9813E);
    box-shadow: 0px 6px 14px 0px rgba(173, 75, 20, 0.30);
-   height: 40px;
+   height: 70px;
    padding: 17px 14px;
    align-items: center;
    font-weight: bold;
    justify-content: center;
    color: #fff;
 }
+
+/* Scroll image on hover - product */
+.screen {
+	display: block;
+   border-top-right-radius: 10px;
+   border-top-left-radius: 10px;
+	height: 350px;
+	overflow: hidden;
+	position: relative;
+	margin: 0 auto;
+}
+.screen img {
+	max-width: 100%;
+	height: auto;
+	position: absolute;
+	z-index: 0;
+  margin:auto;
+  left:0;
+  right:0;
+  padding:0;
+}
+
+/* .screen {
+	display: block;
+   border-top-right-radius: 10px;
+   border-top-left-radius: 10px;
+	height: 350px;
+	overflow: hidden;
+	position: relative;
+	margin: 0 auto;
+}
+.screen img {
+	bottom: -225%;
+	width: 100%;
+	height: auto;
+	position: absolute;
+	z-index: 0;
+  margin:0;
+  padding:0;
+	-webkit-transition: top 11s;
+	-moz-transition: top 1s;
+	-ms-transition: top 1s;
+	-o-transition: top 1s;
+	transition: bottom 1s;
+}
+.screen:hover img {
+  bottom: 0;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+} */
