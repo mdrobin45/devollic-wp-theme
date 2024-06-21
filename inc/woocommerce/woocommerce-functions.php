@@ -50,7 +50,7 @@ function devollic_add_product_thumbnail(){
    
    if($image_url){
       echo "<div class='screen'>";
-      echo "<img
+      echo "<img class='product-thumbnail-image'
       src=".esc_url( $image_url )." alt=".esc_attr($product->get_name())."/>";
       echo "</div>";
    }else{

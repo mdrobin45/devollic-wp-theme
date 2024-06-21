@@ -2,7 +2,7 @@ let $ = jQuery;
 (function ($) {
    $.fn.scrollImage = function () {
       var imageScrollGetHeight = function ($this) {
-         var imageh = $this.find("img").height(),
+         var imageh = $this.find("img.product-thumbnail-image").height(),
             screenh = $this.height();
          return parseInt(screenh - imageh);
       };
@@ -11,7 +11,7 @@ let $ = jQuery;
          // Don't scroll the image if image's height is smaller that screen's height
          if (imageScrollGetHeight($(this)) > 0) return;
 
-         $ele = $(this).find("img");
+         $ele = $(this).find("img.product-thumbnail-image");
          $ele.stop();
 
          var duration = $(this).attr("data-duration");
@@ -39,7 +39,7 @@ let $ = jQuery;
       };
 
       var setImagePosition = function ($this) {
-         $this.find("img").css({
+         $this.find("img.product-thumbnail-image").css({
             bottom: imageScrollGetHeight($this),
          });
       };
