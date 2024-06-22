@@ -103,7 +103,7 @@ function devollic_product_cart_meta_buttons(){
       return;
    }
 
-   $product_permalink = get_permalink($product->get_id())
+   $product_permalink = get_permalink($product->get_id());
    // display buttons
    echo "<div class='product_card__meta_button_wrapper'>";
       echo "<div>";
