@@ -109,8 +109,5 @@ function devollic_product_cart_meta_buttons(){
       echo "<div>";
          echo "<a data-product_id=".esc_attr($product->get_id())." data-product_sku=".esc_attr($product->get_sku())." aria-label=".esc_attr($product->get_name())." class='product_card__meta_button' href=".esc_url($product->add_to_cart_url()).">".esc_html('Add to Cart')."</a>";
       echo "</div>";
-      echo "<div>";
-         echo "<a class='product_card__meta_button' href=".esc_url($product_permalink).">".esc_html("Details")."</a>";
-      echo "</div>";
    echo "</div>";
 }
