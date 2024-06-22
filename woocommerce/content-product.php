@@ -56,11 +56,11 @@ if ( empty( $product ) || ! $product->is_visible() ) {
             do_action( 'woocommerce_shop_loop_item_title' );
 
             ?>
-            <ul class="product-card__meta_category-list">
+            <!-- <ul class="product-card__meta_category-list">
                <li>Company,</li>
                <li>Industry,</li>
                <li>Agency Theme</li>
-            </ul>
+            </ul> -->
          </div>
       </div>
    </div>

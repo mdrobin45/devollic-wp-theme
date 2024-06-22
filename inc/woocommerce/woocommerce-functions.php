@@ -60,3 +60,31 @@ function devollic_add_product_thumbnail(){
       echo "</div>";
    }
 }
+
+// Add product categories in shop page card
+add_action('woocommerce_after_shop_loop_item_title','devollic_add_product_categories_list',15);
+
+function devollic_add_product_categories_list(){
+   global $product;
+
+   // Check if the product object is available
+   if(!$product){
+      return;
+   }
+
+   // Get the product categories
+   $categories_term = get_the_terms($product->get_id(),'product_cat');
+
+    // Check if there are categories and no errors
+   if($categories_term && !is_wp_error($categories_term)){
+      $categories = array();
+
+      // Loop through the categories and add them to the array
+      foreach($categories_term as $category){
+         $categories[]=$category->name;
+      }
+
+      // Display the categories
+      echo "<span class='product_card_meta_categories'>". implode(', ',$categories) . "</span>"
+   }
+}
