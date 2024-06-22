@@ -85,6 +85,6 @@ function devollic_add_product_categories_list(){
       }
 
       // Display the categories
-      echo "<span class='product_card_meta_categories'>". implode(', ',$categories) . "</span>"
+      echo "<span class='product_card_meta_categories'>". implode(', ',$categories) . "</span>";
    }
 }
