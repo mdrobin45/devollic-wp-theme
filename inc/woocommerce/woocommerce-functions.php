@@ -60,5 +60,3 @@ function devollic_add_product_thumbnail(){
       echo "</div>";
    }
 }
-
-// Test
