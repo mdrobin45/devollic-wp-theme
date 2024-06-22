@@ -62,7 +62,7 @@ function devollic_add_product_thumbnail(){
 }
 
 // Add product categories in shop page card
-add_action('woocommerce_after_shop_loop_item_title','devollic_add_product_categories_list',15);
+add_action('woocommerce_shop_loop_item_title','devollic_add_product_categories_list',15);
 
 function devollic_add_product_categories_list(){
    global $product;

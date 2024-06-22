@@ -27,16 +27,8 @@ figure.product-card__image-wrapper img{
    color: #3D3D3D !important;
    font-weight: 600 !important;
 }
-ul.product-card__meta_category-list {
-   margin: 0;
-   padding: 0;
-   display: flex;
-}
-ul.product-card__meta_category-list li {
-   list-style: none;
-   font-family: Roboto;
+.product_card_meta_categories {
    font-size: 14px;
-   color: #656565;
    font-style: normal;
    font-weight: 400;
 }
