@@ -70,12 +70,7 @@ figure.product-card__image-wrapper img{
   right:0;
   padding:0;
 }
-.product_card__meta_button_wrapper{
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   column-gap: 10px;
-}
+
 .product_card__meta_button{
    font-family: "Poppins", Sans-serif !important;
    font-size: 16px !important;
