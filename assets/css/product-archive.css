@@ -26,7 +26,8 @@ figure.product-card__image-wrapper img{
    font-style: normal !important;
    color: #3D3D3D !important;
    font-weight: 600 !important;
-   margin: 0 Im !important;
+   margin: 0 !important;
+   line-height: 0 !important;
 }
 .product_card_meta_categories {
    font-size: 14px;
