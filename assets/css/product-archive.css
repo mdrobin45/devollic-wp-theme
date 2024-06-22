@@ -70,4 +70,22 @@ figure.product-card__image-wrapper img{
   right:0;
   padding:0;
 }
-
+.product_card__meta_button_wrapper{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   column-gap: 10px;
+}
+.product_card__meta_button{
+   font-family: "Poppins", Sans-serif;
+   font-size: 16px;
+   font-weight: 500;
+   line-height: 21.6px;
+   letter-spacing: 0.32px;
+   color: #FFFFFF;
+   background-color: #6730f7;
+   border-radius: 3px 3px 3px 3px;
+}
+.product_card__meta_button:hover{
+   background-color: #572ACE;
+}

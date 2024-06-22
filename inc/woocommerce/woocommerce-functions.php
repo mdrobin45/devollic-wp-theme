@@ -88,3 +88,29 @@ function devollic_add_product_categories_list(){
       echo "<span class='product_card_meta_categories'>". implode(', ',$categories) . "</span>";
    }
 }
+
+// Remove add to cart default hook
+remove_action('woocommerce_after_shop_loop_item','woocommerce_template_loop_add_to_cart',10);
+
+// Add custom add to cart button
+add_action('woocommerce_after_shop_loop_item','devollic_product_cart_meta_buttons',10);
+
+function devollic_product_cart_meta_buttons(){
+   global $product;
+
+   // Check if the product object is available
+   if(!$product){
+      return;
+   }
+
+   $product_permalink = get_permalink($product->get_id())
+   // display buttons
+   echo "<div class='product_card__meta_button_wrapper'>";
+      echo "<div>";
+         echo "<a data-product_id=".esc_attr($product->get_id())." data-product_sku=".esc_attr($product->get_sku())." aria-label=".esc_attr($product->get_name())." class='product_card__meta_button' href=".esc_url($product->add_to_cart_url()).">".esc_html('Add to Cart')."</a>";
+      echo "</div>";
+      echo "<div>";
+         echo "<a class='product_card__meta_button' href=".esc_url($product_permalink).">".esc_html("Details")."</a>";
+      echo "</div>";
+   echo "</div>";
+}
