@@ -88,5 +88,5 @@ figure.product-card__image-wrapper img{
    padding: 10px !important;
 }
 .product_card__meta_button:hover{
-   background-color: #572ACE;
+   background-color: #572ACE !important;
 }
