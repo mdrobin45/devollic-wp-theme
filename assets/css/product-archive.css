@@ -76,7 +76,7 @@ figure.product-card__image-wrapper img{
    justify-content: space-between;
    column-gap: 10px;
 }
-.product_card__meta_button a{
+.product_card__meta_button{
    font-family: "Poppins", Sans-serif !important;
    font-size: 16px !important;
    font-weight: 500 !important;
