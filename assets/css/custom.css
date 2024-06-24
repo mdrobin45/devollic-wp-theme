@@ -279,5 +279,5 @@ button.wc-checkout-update-cart-btn.button:disabled[disabled] {
    margin: auto !important;
 }
 .woocommerce a.remove:hover{
-   background: transparent !important;
+   background: white !important;
 }
