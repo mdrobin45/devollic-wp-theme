@@ -223,3 +223,25 @@ ul#menu-1-91c857c li a {
     color:#ffffff; /* Text color on hover */
     border-color: #652FF2; /* Border color on hover */
 }
+/* Apply "Public Sans" to headings */
+h1, h2, h3, h4, h5, h6,
+.woocommerce ul.products li.product .woocommerce-loop-product__title,
+.woocommerce div.product .product_title {
+    font-family: 'Public Sans', sans-serif;
+}
+
+/* Apply "Poppins" to other elements */
+body, p, a, span, div, input, button,
+.woocommerce ul.products li.product .price,
+.woocommerce div.product p.price,
+.woocommerce div.product span.price,
+.woocommerce div.product .woocommerce-product-details__short-description,
+.woocommerce div.product .woocommerce-tabs .panel,
+.woocommerce button.button, 
+.woocommerce a.button, 
+.woocommerce input.button,
+.woocommerce .woocommerce-message,
+.woocommerce .woocommerce-info,
+.woocommerce .woocommerce-error {
+    font-family: 'Poppins', sans-serif;
+}
