@@ -192,3 +192,34 @@ ul#menu-1-91c857c li a {
 .cart-checkout-btn:hover{
    background:#5b4acb !important;
 }
+/* Change button colors */
+.woocommerce button.button, 
+.woocommerce a.button, 
+.woocommerce input.button, 
+.woocommerce #respond input#submit, 
+.woocommerce #content input.button, 
+.woocommerce-page button.button, 
+.woocommerce-page a.button, 
+.woocommerce-page input.button, 
+.woocommerce-page #respond input#submit, 
+.woocommerce-page #content input.button {
+    background-color: #652FF2; /* Background color */
+    color: #ffffff; /* Text color */
+    border-color:#652FF2; /* Border color */
+}
+
+/* Change button hover colors */
+.woocommerce button.button:hover, 
+.woocommerce a.button:hover, 
+.woocommerce input.button:hover, 
+.woocommerce #respond input#submit:hover, 
+.woocommerce #content input.button:hover, 
+.woocommerce-page button.button:hover, 
+.woocommerce-page a.button:hover, 
+.woocommerce-page input.button:hover, 
+.woocommerce-page #respond input#submit:hover, 
+.woocommerce-page #content input.button:hover {
+    background-color: #5b4acb; /* Background color on hover */
+    color:#ffffff; /* Text color on hover */
+    border-color: #652FF2; /* Border color on hover */
+}
