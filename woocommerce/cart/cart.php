@@ -178,9 +178,9 @@ do_action( 'woocommerce_before_cart' ); ?>
             <?php do_action( 'woocommerce_after_cart_table' ); ?>
          </form>
       </div>
-      <div class="col-12 col-md-5">
+   </div>
+   <div class="col-12 col-md-5">
          <?php do_action( 'woocommerce_before_cart_collaterals' ); ?>
-      </div>
    </div>
 </div>
 
