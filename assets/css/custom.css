@@ -186,3 +186,113 @@ img#footer-newsletter-submit-arrow:hover {
 ul#menu-1-91c857c li a {
    padding: 10px 0;
 }
+.cart-checkout-btn{
+   background:#652FF2 !important;
+   padding: 15px !important;
+   font-weight: 400 !important;
+}
+.cart-checkout-btn:hover{
+   background:#5b4acb !important;
+}
+.cart-checkout-btn-wrapper{
+   padding: 0 !important;
+}
+/* Change button colors */
+.woocommerce button.button, 
+.woocommerce a.button, 
+.woocommerce input.button, 
+.woocommerce #respond input#submit, 
+.woocommerce #content input.button, 
+.woocommerce-page button.button, 
+.woocommerce-page a.button, 
+.woocommerce-page input.button, 
+.woocommerce-page #respond input#submit, 
+.woocommerce-page #content input.button {
+    background-color: #652FF2;
+    color: #ffffff; 
+    border-color:#652FF2;
+    font-weight: 400;
+}
+
+/* Change button hover colors */
+.woocommerce button.button:hover, 
+.woocommerce a.button:hover, 
+.woocommerce input.button:hover, 
+.woocommerce #respond input#submit:hover, 
+.woocommerce #content input.button:hover, 
+.woocommerce-page button.button:hover, 
+.woocommerce-page a.button:hover, 
+.woocommerce-page input.button:hover, 
+.woocommerce-page #respond input#submit:hover, 
+.woocommerce-page #content input.button:hover {
+    background-color: #5b4acb;
+    color:#ffffff;
+    border-color: #652FF2;
+    font-weight: 400;
+}
+/* Apply "Public Sans" to headings */
+h1, h2, h3, h4, h5, h6,
+.woocommerce ul.products li.product .woocommerce-loop-product__title,
+.woocommerce div.product .product_title {
+    font-family: 'Public Sans', sans-serif;
+}
+
+/* Apply "Poppins" to other elements */
+body, p, a, span, div, input, button,
+.woocommerce ul.products li.product .price,
+.woocommerce div.product p.price,
+.woocommerce div.product span.price,
+.woocommerce div.product .woocommerce-product-details__short-description,
+.woocommerce div.product .woocommerce-tabs .panel,
+.woocommerce button.button, 
+.woocommerce a.button, 
+.woocommerce input.button,
+.woocommerce .woocommerce-message,
+.woocommerce .woocommerce-info,
+.woocommerce .woocommerce-error {
+    font-family: 'Poppins', sans-serif;
+}
+.wc-checkout-coupon-input{
+   height: 56px !important;
+   width: 50% !important;
+   padding: 6px 15px 6px !important;
+}
+.wc-checkout-apply-coupon-btn{
+   height: 56px !important;
+   width: 47% !important;   
+}
+.wc-checkout-update-cart-btn{
+   height: 56px !important;
+}
+button.wc-checkout-update-cart-btn.button:disabled[disabled] {
+   background: #cbcbcb !important;
+}
+.woocommerce-cart table.cart img {
+   width: 62px !important;
+   height: 62px !important;
+}
+.woocommerce a.remove{
+   border: 1px solid red !important;
+   padding: 12px !important;
+   display: flex !important;
+   align-items: center !important;
+   justify-content: center !important;
+   font-size: 17px !important;
+   margin: auto !important;
+}
+.woocommerce a.remove:hover{
+   background: white !important;
+}
+.cart-total-heading{
+   font-size: 30px !important;
+   text-align: center !important;
+}
+.cart-total-price{
+   text-align: center !important;
+   margin-top: -15px !important;
+}
+.cart_totals{
+   border: 1px solid #ddd !important;
+   padding: 10px !important;
+   border-radius: 5px !important;
+}

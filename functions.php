@@ -146,9 +146,12 @@ function devollic_scripts() {
    wp_enqueue_style( 'bootstrap-css', get_template_directory_uri().'/assets/css/bootstrap.min.css', [], '5.3.3', 'all' );
    wp_enqueue_style( 'product-archive-css', get_template_directory_uri().'/assets/css/product-archive.css', [], '1.0.0', 'all' );
    wp_enqueue_style( 'custom_css', get_template_directory_uri().'/assets/css/custom.css', [], '1.0.0', 'all' );
+   wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap', false );
 
 	wp_enqueue_script( 'devollic-image-hover-scroll', get_template_directory_uri() . '/assets/js/hover-image-scroll.js', array('jquery'), _S_VERSION, true );
 	wp_enqueue_script( 'devollic-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'fontawesome-kit', 'https://kit.fontawesome.com/62db3e136e.js', array(), _S_VERSION, true );
+   
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
