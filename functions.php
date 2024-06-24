@@ -149,6 +149,7 @@ function devollic_scripts() {
 
 	wp_enqueue_script( 'devollic-image-hover-scroll', get_template_directory_uri() . '/assets/js/hover-image-scroll.js', array('jquery'), _S_VERSION, true );
 	wp_enqueue_script( 'devollic-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'fontawesome-kit', 'https://kit.fontawesome.com/62db3e136e.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
