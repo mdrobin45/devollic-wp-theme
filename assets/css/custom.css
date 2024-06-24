@@ -250,3 +250,15 @@ body, p, a, span, div, input, button,
 .woocommerce .woocommerce-error {
     font-family: 'Poppins', sans-serif;
 }
+.wc-checkout-coupon-input{
+   height: 56px;
+   width: 50%;
+   padding: 6px 15px 6px;
+}
+.wc-checkout-apply-coupon-btn{
+   height: 56px;
+   width: 47%;   
+}
+.wc-checkout-update-cart-btn{
+   height: 56px;
+}
