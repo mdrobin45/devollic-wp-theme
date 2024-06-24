@@ -278,3 +278,6 @@ button.wc-checkout-update-cart-btn.button:disabled[disabled] {
    font-size: 17px !important;
    margin: auto !important;
 }
+.woocommerce a.remove:hover{
+   background: transparent !important;
+}
