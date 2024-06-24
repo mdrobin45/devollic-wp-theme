@@ -99,6 +99,7 @@ function devollic_setup() {
 			'flex-height' => true,
 		)
 	);
+   add_theme_support( 'cart-page-thumbnail-size', 62,62, true )
 
    // Woocommerce Support
    add_theme_support( 'woocommerce' );
