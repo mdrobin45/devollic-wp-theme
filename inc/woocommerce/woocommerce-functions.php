@@ -109,13 +109,3 @@ function devollic_product_cart_meta_buttons(){
       echo "<a data-product_id=".esc_attr($product->get_id())." data-product_sku=".esc_attr($product->get_sku())." aria-label=".esc_attr($product->get_name())." class='product_card__meta_button' href=".esc_url($product->add_to_cart_url()).">".esc_html('Add to Cart')."</a>";
    echo "</div>";
 }
-
-// Remove cart page collaterals
-remove_action('woocommerce_cart_collaterals','woocommerce_cart_totals',10);
-
-// Modify cart page collaterals
-add_action('woocommerce_cart_collaterals','devollic_cart_collaterals',10);
-
-function devollic_cart_collaterals(){
-   echo "Cart TOtal";
-}
