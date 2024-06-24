@@ -269,7 +269,7 @@ button.wc-checkout-update-cart-btn.button:disabled[disabled] {
    width: 62px !important;
    height: 62px !important;
 }
-.cart-page__remove-item-btn{
+.woocommerce a.remove{
    border: 1px solid red !important;
    padding: 12px !important;
    display: flex !important;
