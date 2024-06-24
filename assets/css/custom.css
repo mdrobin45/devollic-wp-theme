@@ -208,9 +208,10 @@ ul#menu-1-91c857c li a {
 .woocommerce-page input.button, 
 .woocommerce-page #respond input#submit, 
 .woocommerce-page #content input.button {
-    background-color: #652FF2; /* Background color */
-    color: #ffffff; /* Text color */
-    border-color:#652FF2; /* Border color */
+    background-color: #652FF2;
+    color: #ffffff; 
+    border-color:#652FF2;
+    font-weight: 400;
 }
 
 /* Change button hover colors */
@@ -224,9 +225,10 @@ ul#menu-1-91c857c li a {
 .woocommerce-page input.button:hover, 
 .woocommerce-page #respond input#submit:hover, 
 .woocommerce-page #content input.button:hover {
-    background-color: #5b4acb; /* Background color on hover */
-    color:#ffffff; /* Text color on hover */
-    border-color: #652FF2; /* Border color on hover */
+    background-color: #5b4acb;
+    color:#ffffff;
+    border-color: #652FF2;
+    font-weight: 400;
 }
 /* Apply "Public Sans" to headings */
 h1, h2, h3, h4, h5, h6,
