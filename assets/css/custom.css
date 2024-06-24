@@ -265,3 +265,7 @@ body, p, a, span, div, input, button,
 button.wc-checkout-update-cart-btn.button:disabled[disabled] {
    background: #cbcbcb !important;
 }
+.woocommerce-cart table.cart img{
+   width: 62px !important;
+   height: 62px !important;
+}
