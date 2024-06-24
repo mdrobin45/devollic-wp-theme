@@ -188,8 +188,8 @@ ul#menu-1-91c857c li a {
 }
 .cart-checkout-btn{
    background:#652FF2 !important;
-   padding: 15px;
-   font-weight: 400;
+   padding: 15px !important;
+   font-weight: 400 !important;
 }
 .cart-checkout-btn:hover{
    background:#5b4acb !important;
@@ -261,4 +261,7 @@ body, p, a, span, div, input, button,
 }
 .wc-checkout-update-cart-btn{
    height: 56px !important;
+}
+button.wc-checkout-update-cart-btn.button:disabled[disabled] {
+   background: #cbcbcb !important;
 }
