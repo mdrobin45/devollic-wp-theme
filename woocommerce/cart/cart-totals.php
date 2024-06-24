@@ -22,12 +22,10 @@ defined( 'ABSPATH' ) || exit;
 
 	<?php do_action( 'woocommerce_before_cart_totals' ); ?>
 
-	<table cellspacing="0" class="shop_table shop_table_responsive">
       <div>
          <h2 class="cart-total-heading"><?php esc_html_e( 'Your Cart Total', 'woocommerce' ); ?></h2>
          <h3 class="cart-total-price"><?php wc_cart_totals_subtotal_html(); ?></h3>
       </div>
-	</table>
 	<div class="wc-proceed-to-checkout cart-checkout-btn-wrapper">
 		<?php do_action( 'woocommerce_proceed_to_checkout' ); ?>
 	</div>

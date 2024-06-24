@@ -284,10 +284,10 @@ button.wc-checkout-update-cart-btn.button:disabled[disabled] {
    background: white !important;
 }
 .cart-total-heading{
-   font-size: 30px;
-   text-align: center;
+   font-size: 30px !important;
+   text-align: center !important;
 }
 .cart-total-price{
-   text-align: center;
-   margin-top: -15px;
+   text-align: center !important;
+   margin-top: -15px !important;
 }
