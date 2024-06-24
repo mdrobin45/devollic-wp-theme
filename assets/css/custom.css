@@ -291,3 +291,8 @@ button.wc-checkout-update-cart-btn.button:disabled[disabled] {
    text-align: center !important;
    margin-top: -15px !important;
 }
+.cart_totals{
+   border: 1px solid #ddd !important;
+   padding: 10px !important;
+   border-radius: 5px !important;
+}
