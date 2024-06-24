@@ -186,3 +186,9 @@ img#footer-newsletter-submit-arrow:hover {
 ul#menu-1-91c857c li a {
    padding: 10px 0;
 }
+.cart-checkout-btn{
+   background:#652FF2 !important;
+}
+.cart-checkout-btn:hover{
+   background:#5b4acb !important;
+}
