@@ -188,9 +188,14 @@ ul#menu-1-91c857c li a {
 }
 .cart-checkout-btn{
    background:#652FF2 !important;
+   padding: 15px;
+   font-weight: 400;
 }
 .cart-checkout-btn:hover{
    background:#5b4acb !important;
+}
+.cart-checkout-btn-wrapper{
+   padding: 0 !important;
 }
 /* Change button colors */
 .woocommerce button.button, 
