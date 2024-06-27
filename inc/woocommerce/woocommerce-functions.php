@@ -127,3 +127,21 @@ function custom_woocommerce_view_cart_url() {
    return site_url('/cart'); // Replace with your desired URL
 }
 add_filter('woocommerce_get_cart_url', 'custom_woocommerce_view_cart_url');
+
+
+// Remove single product hook
+remove_action('woocommerce_single_product_summary','woocommerce_template_single_price',10);
+remove_action('woocommerce_single_product_summary','woocommerce_template_single_title',5);
+remove_action('woocommerce_single_product_summary','woocommerce_template_single_rating',10);
+remove_action('woocommerce_single_product_summary','woocommerce_template_single_excerpt',20);
+remove_action('woocommerce_single_product_summary','woocommerce_template_single_add_to_cart',30);
+remove_action('woocommerce_single_product_summary','woocommerce_template_single_meta',40);
+remove_action('woocommerce_single_product_summary','woocommerce_template_single_sharing',50);
+
+// Add function for single product price
+add_action('woocommerce_single_product_summary','devollic_single_product_price',10);
+function devollic_single_product_price(){
+   global $product;
+   $product_price = $product->get_price();
+
+   echo "<h3 class='price'>".wc_price($product_price)."</h3>";
