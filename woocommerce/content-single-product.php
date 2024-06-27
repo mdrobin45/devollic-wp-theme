@@ -202,34 +202,7 @@ if ( post_password_required() ) {
             <div class="sidebar-area">
                <div class="widget widget-cart">
                   <div class="widget-cart-inner text-center">
-                     <!-- <h3 class="price">$30.00</h3> -->
-                     <?php
-                        /**
-                         * Hook: woocommerce_single_product_summary.
-                        *
-                        * @hooked woocommerce_template_single_title - 5
-                        * @hooked woocommerce_template_single_rating - 10
-                        * @hooked woocommerce_template_single_price - 10
-                        * @hooked woocommerce_template_single_excerpt - 20
-                        * @hooked woocommerce_template_single_add_to_cart - 30
-                        * @hooked woocommerce_template_single_meta - 40
-                        * @hooked woocommerce_template_single_sharing - 50
-                        * @hooked WC_Structured_Data::generate_product_data() - 60
-                        */
-                        do_action( 'woocommerce_single_product_summary' );
-                     ?>
-                     <span class="ratting">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star star-o"></i>
-                     </span>
-                     <ul>
-                        <li><i class="fa fa-shopping-cart"></i>12 Sales</li>
-                        <li><i class="fa fa-star"></i>5 Ratting</li>
-                        <li><i class="fa fa-eye"></i>125 Views</li>
-                     </ul>
+                     <?php do_action('devollic_product_details_sidebar'); ?>
                      <a class="btn btn-base" href="#">Add to cart</a>
                   </div>
                </div>
