@@ -62,7 +62,7 @@ if ( post_password_required() ) {
                         class="nav-link"
                         data-toggle="pill"
                         href="#pills-profile"
-                        >Reviews <?php do_action('devollic_total_rating_count'); ?></a
+                        >Reviews <?php echo $product->get_review_count(); ?></a
                      >
                   </li>
                </ul>
