@@ -175,24 +175,16 @@ function devollic_product_title_category(){
    
 }
 
-// SHow tags
-// add_action('devollic_single_product_tags_hook','devollic_single_product_tags');
-// function devollic_single_product_tags(){
-//    global $product;
-//    $tags_ids = $product->get_tag_ids();
+// single product thumbnail image
+add_action('devollic_product_page_image','devolli_show_product_page_image');
+function devolli_show_product_page_image(){
+   global $product;
+   $image_id = $product->get_image_id();
 
-//    if(empty($tags_ids)){
-//       return;
-//    };
-   
+   if(!$image_id){
+      return "No image available";
+   }
 
-//    $tags_array=array();
-//    foreach($tags_ids as $tags_id){
-//       $term_tag = get_tag( $tags_id );
-//      $tags_array[] = $term_tag->name;
-//    };
-//    print_r($tags_array);
-
-   
-//    // echo "<span>Tags: </span>" . implode(', ', $tags_array);
-// }
+   $image_url = wp_get_attachment_image_url( $image_id,'product-details-thumb');
+   echo "<img class='w-100' src='".$image_url."' alt='image' />";
+}

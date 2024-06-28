@@ -36,12 +36,12 @@ if ( post_password_required() ) {
          <div class="col-lg-8">
             <div class="single-product-wrap">
                <div class="thumb">
-                  <img
+                  <!-- <img
                      class="w-100"
                      src="https://solverwp.com/demo/html/drketa/assets/img/product/1.png"
-                     alt="image" />
+                     alt="image" /> -->
+                  <?php do_action('devollic_product_page_image'); ?>
                   <a class="btn btn-white" href="#">Live Preview</a>
-                  <a class="btn btn-white btn-buy" href="#">Buy Now</a>
                </div>
                <div class="single-product-details">
                   <?php do_action('devollic_product_single_page_title_category'); ?>
@@ -99,14 +99,6 @@ if ( post_password_required() ) {
                      </div>
                      <div class="add-review">
                         <h5 class="title">Add Review</h5>
-                        <!-- <div class="star-rating">
-                           <p>Your Rating:</p>
-                           <span><i class="la la-star star-o"></i></span>
-                           <span><i class="la la-star star-o"></i></span>
-                           <span><i class="la la-star star-o"></i></span>
-                           <span><i class="la la-star star-o"></i></span>
-                           <span><i class="la la-star star-o"></i></span>
-                        </div> -->
                         <form class="contact-form">
                            <div class="row">
                               <div class="col-12">
