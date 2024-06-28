@@ -179,7 +179,7 @@ function devollic_product_title_category(){
 add_action('devollic_single_product_tags_hook','devollic_single_product_tags');
 function devollic_single_product_tags(){
    global $product;
-   $tag_ids = $products->get_tag_ids();
+   $tag_ids = $product->get_tag_ids();
 
    if(empty($tag_ids)){
       return;
@@ -192,5 +192,5 @@ function devollic_single_product_tags(){
          $tags[] = $tag->name;
       }
    };
-   echo "<span>Tags</span>".implode(', ', $tags);
+   echo "<span>Tags: </span>" . implode(', ', $tags);
 }
