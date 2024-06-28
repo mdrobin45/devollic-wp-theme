@@ -136,6 +136,8 @@ function devollic_single_product_sidebar_function(){
    $product_price = $product->get_price();
    $total_sales = $product->get_total_sales();
    $rating_count = $product->get_rating_count();
+   $product_id = $product->get_id();
+   $product_url = esc_url($product->add_to_cart_url());
 
    echo "<h3 class='price'>".wc_price($product_price)."</h3>";
    echo '<span class="ratting">
@@ -150,4 +152,5 @@ function devollic_single_product_sidebar_function(){
       echo "<li><i class='fa fa-star'></i>".$rating_count." Ratting</li>";
       echo "<li><i class='fa fa-eye'></i>125 Views</li>";
    echo "</ul>";
+   echo "<a data-product_id=".$product_id." class='btn btn-base' href=".$product_url.">".esc_html('Add to cart')."</a>";
 }
