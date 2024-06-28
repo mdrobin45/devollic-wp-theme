@@ -163,7 +163,7 @@ if ( post_password_required() ) {
                      <li><span>Documentation</span>Well Documentation</li>
                      <li><span>Layout</span>Responsive</li>
                      <li>
-                        <!-- Code -->
+                     <?php do_action('devollic_single_product_tags_hook'); ?>
                      </li>
                   </ul>
                </div>

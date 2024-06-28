@@ -192,5 +192,7 @@ function devollic_single_product_tags(){
          $tags_array[] = $tag->name;
       }
    };
-   echo "<span>Tags: </span>" . implode(', ', $tags_array);
+
+   print_r($tags);
+   // echo "<span>Tags: </span>" . implode(', ', $tags_array);
 }
