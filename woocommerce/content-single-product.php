@@ -149,7 +149,7 @@ if ( post_password_required() ) {
                </div>
                <div class="widget widget-list">
                   <ul>
-                     <li><span>Last Update</span><?php $product->get_date_modified(); ?></li>
+                     <li><span>Last Update</span><?php $product->get_date_modified()->date('F j, Y'); ?></li>
                      <li><span>Created</span><?php $product->get_date_created(); ?></li>
                      <li><span>High Resolution</span>Yes</li>
                      <li>
