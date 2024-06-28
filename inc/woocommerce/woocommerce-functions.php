@@ -181,9 +181,9 @@ function devollic_single_product_tags(){
    global $product;
    $tags = $product->get_tag_ids();
 
-   // if(empty($tags)){
-   //    return;
-   // };
+   if(empty($tags)){
+      return;
+   };
    print_r($tags);
    exit();
 
