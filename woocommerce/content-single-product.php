@@ -71,6 +71,8 @@ if ( post_password_required() ) {
                      <?php echo $product->get_description(); ?>
                   </div>
                   <div class="tab-pane fade" id="pills-profile">
+                  <?php $array = array('apple', 'banana', 'cherry');
+print_r($array); ?>
                      <h5 class="title">Reviews <?php echo $product->get_review_count(); ?></h5>
                      <?php if ( have_comments() ) : ?>
                      <div class="comments-list">
