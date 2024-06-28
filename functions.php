@@ -148,11 +148,11 @@ function devollic_scripts() {
    wp_enqueue_style( 'custom_css', get_template_directory_uri().'/assets/css/custom.css', [], '1.0.0', 'all' );
    wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap', false );
 
-   // if(is_product()){
+   if(is_product()){
       wp_enqueue_style( 'product-details-vendor-css', get_template_directory_uri().'/assets/css/product-details-vendor.css', [], '1.0.0', 'all' );
       wp_enqueue_style( 'product-details-css', get_template_directory_uri().'/assets/css/product-details.css', [], '1.0.0', 'all' );
       wp_enqueue_script( 'product-details-script', get_template_directory_uri() . '/assets/js/product-details.js', array(), _S_VERSION, true );
-   // }
+   }
 
 	wp_enqueue_script( 'devollic-image-hover-scroll', get_template_directory_uri() . '/assets/js/hover-image-scroll.js', array('jquery'), _S_VERSION, true );
 	wp_enqueue_script( 'devollic-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
