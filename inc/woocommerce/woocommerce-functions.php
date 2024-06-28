@@ -181,19 +181,19 @@ function devollic_single_product_tags(){
    // global $product;
    $tags = get_the_terms( 'product_tag');
 
-   if(empty($tags)){
-      return;
-   };
+   // if(empty($tags)){
+   //    return;
+   // };
    print_r($tags);
    exit();
 
-   $tags_array=array();
-   foreach($tags as $tag){
-      $tag = get_term('product_tag');
-      if(!is_wp_error($tag)){
-         $tags_array[] = $tag->name;
-      }
-   };
+   // $tags_array=array();
+   // foreach($tags as $tag){
+   //    $tag = get_term('product_tag');
+   //    if(!is_wp_error($tag)){
+   //       $tags_array[] = $tag->name;
+   //    }
+   // };
 
    
    // echo "<span>Tags: </span>" . implode(', ', $tags_array);
