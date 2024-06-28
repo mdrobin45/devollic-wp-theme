@@ -179,21 +179,21 @@ function devollic_product_title_category(){
 add_action('devollic_single_product_tags_hook','devollic_single_product_tags');
 function devollic_single_product_tags(){
    global $product;
-   $tags = $product->get_tag_ids();
+   $tags_ids = $product->get_tag_ids();
 
-   if(empty($tags)){
+   if(empty($tags_ids)){
       return;
    };
-   print_r($tags);
+   print_r($tags_ids);
    exit();
 
-   // $tags_array=array();
-   // foreach($tags as $tag){
-   //    $tag = get_term('product_tag');
-   //    if(!is_wp_error($tag)){
-   //       $tags_array[] = $tag->name;
-   //    }
-   // };
+   $tags_array=array();
+   foreach($tags_ids as $tags_id){
+      echo get_term($tags_id,'product_tag');
+      // if(!is_wp_error($tag)){
+      //    $tags_array[] = $tag->name;
+      // }
+   };
 
    
    // echo "<span>Tags: </span>" . implode(', ', $tags_array);
