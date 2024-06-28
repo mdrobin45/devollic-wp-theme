@@ -68,10 +68,10 @@ if ( post_password_required() ) {
                </ul>
                <div class="tab-content">
                   <div class="tab-pane fade show active" id="pills-home">
-                     <?php do_action('devollic_product_description'); ?>
+                     <?php echo $product->get_description(); ?>
                   </div>
                   <div class="tab-pane fade" id="pills-profile">
-                     <h5 class="title">Reviews <?php do_action('devollic_total_rating_count'); ?></h5>
+                     <h5 class="title">Reviews <?php echo $product->get_review_count(); ?></h5>
                      <div class="single-review">
                         <h6 class="name">Tyler Bailey</h6>
                         <span class="date">13 August 2019</span>
