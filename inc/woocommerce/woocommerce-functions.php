@@ -184,6 +184,8 @@ function devollic_single_product_tags(){
    if(empty($tags)){
       return;
    };
+   print_r($tags);
+   exit();
 
    $tags_array=array();
    foreach($tags as $tag){
@@ -193,6 +195,6 @@ function devollic_single_product_tags(){
       }
    };
 
-   print_r($tags);
+   
    // echo "<span>Tags: </span>" . implode(', ', $tags_array);
 }
