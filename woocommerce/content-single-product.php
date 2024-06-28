@@ -68,10 +68,7 @@ if ( post_password_required() ) {
                </ul>
                <div class="tab-content">
                   <div class="tab-pane fade show active" id="pills-home">
-                     <?php echo $product->get_description(); ?>
-                  </div>
-                  <div class="tab-pane fade" id="pills-profile">
-                     <?php
+                  <?php
                      
                      $comments = get_comments( array(
                         'post_type' => 'product',
@@ -80,6 +77,9 @@ if ( post_password_required() ) {
                   exit();
                      
                      ?>
+                     <?php echo $product->get_description(); ?>
+                  </div>
+                  <div class="tab-pane fade" id="pills-profile">
                      <h5 class="title">Reviews <?php echo $product->get_review_count(); ?></h5>
                      <?php if ( have_comments() ) : ?>
                      <div class="comments-list">
