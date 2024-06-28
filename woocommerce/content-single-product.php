@@ -149,8 +149,8 @@ if ( post_password_required() ) {
                </div>
                <div class="widget widget-list">
                   <ul>
-                     <li><span>Last Update</span><?php $product->get_date_modified()->date('F j, Y'); ?></li>
-                     <li><span>Created</span><?php $product->get_date_created(); ?></li>
+                     <li><span>Last Update</span><?php echo $product->get_date_modified()->date('F j, Y'); ?></li>
+                     <li><span>Created</span><?php echo $product->get_date_created()->date('F j, Y'); ?></li>
                      <li><span>High Resolution</span>Yes</li>
                      <li>
                         <span>Browsers</span>IE11, Firefox, Safari, Opera,
