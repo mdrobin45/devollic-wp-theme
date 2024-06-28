@@ -77,8 +77,10 @@ if ( post_password_required() ) {
                         <?php
                         $comments = get_comments( array(
                               'post_id' => get_the_ID(),
-                              'status'  => 'approve'
+                              'status'  => 'approve',
+                              'type'    => 'review',
                         ) );
+                        echo $comments;
 
                         foreach ( $comments as $comment ) : ?>
                               <div class="single-review">
