@@ -184,8 +184,7 @@ function devollic_single_product_tags(){
    if(empty($tags_ids)){
       return;
    };
-   print_r($tags_ids);
-   exit();
+   
 
    $tags_array=array();
    foreach($tags_ids as $tags_id){
