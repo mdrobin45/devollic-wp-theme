@@ -149,8 +149,8 @@ if ( post_password_required() ) {
                </div>
                <div class="widget widget-list">
                   <ul>
-                     <li><span>Last Update</span>28 January 19</li>
-                     <li><span>Created</span>26 September 18</li>
+                     <li><span>Last Update</span><?php $product->get_date_modified(); ?></li>
+                     <li><span>Created</span><?php $product->get_date_created(); ?></li>
                      <li><span>High Resolution</span>Yes</li>
                      <li>
                         <span>Browsers</span>IE11, Firefox, Safari, Opera,
@@ -160,12 +160,26 @@ if ( post_password_required() ) {
                         <span>Compatible With</span>Bootstrap 4.x <br />Included
                         PHP Files, <br />HTML Files, CSS, <br />JS Files
                      </li>
-                     <li><span>Columns</span>4+</li>
                      <li><span>Documentation</span>Well Documentation</li>
                      <li><span>Layout</span>Responsive</li>
                      <li>
-                        <span>Tags</span>bakery, bar, blog, burger, cafe, chef,
-                        food, grill, menu
+                        <?php
+                        $tag_ids = $products->get_tag_ids();
+
+                        if(empty($tag_ids)){
+                           return;
+                        }
+
+                        $tags = array();
+                        foreach($tag_ids as $tag_id){
+                           $tag = get_term($tag_id,'product_tag');
+                           if(!is_wp_error($tag)){
+                              $tags[] = $tag->name;
+                           }
+                        }
+                        echo implode(', ', $tags);
+
+                        ?>
                      </li>
                   </ul>
                </div>
