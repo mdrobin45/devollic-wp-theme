@@ -44,8 +44,7 @@ if ( post_password_required() ) {
                   <a class="btn btn-white btn-buy" href="#">Buy Now</a>
                </div>
                <div class="single-product-details">
-                  <h4><a href="#">Landing page - Kitchen</a></h4>
-                  <p>Photography Word Press Theme</p>
+                  <?php do_action('devollic_product_single_page_title_category'); ?>
                </div>
             </div>
             <div class="product-tab">

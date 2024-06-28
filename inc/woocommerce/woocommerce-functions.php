@@ -154,3 +154,23 @@ function devollic_single_product_sidebar_function(){
    echo "</ul>";
    echo "<a data-product_id=".$product_id." class='btn btn-base' href=".$product_url.">".esc_html('Add to cart')."</a>";
 }
+
+// Product title and category
+add_action('devollic_product_single_page_title_category','devollic_product_title_category');
+function devollic_product_title_category(){
+   global $product;
+
+   echo "<h4>Landing page - Kitchen</h4>";
+   
+   $categories_term = get_the_terms($product->get_id(), 'product_cat');
+
+   if ($categories_term && !is_wp_error($categories_term)) {
+       $categories = array();
+
+       foreach ($categories_term as $category) {
+           $categories[] = $category->name;
+       }
+       echo "<p>".implode(', ', $categories)."</p>";
+   }
+   
+}
