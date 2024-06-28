@@ -3587,31 +3587,31 @@ ul {
   font-size: 13px;
 }
 
-.product-tab .tab-content .single-review .star-rating {
+.product-tab .tab-content .single-review .product-star-rating {
   margin-top: 7px;
 }
 
-.product-tab .tab-content .single-review .star-rating span {
+.product-tab .tab-content .single-review .product-star-rating span {
   color: #ffcc00;
 }
 
-.product-tab .tab-content .single-review .star-rating span i.star-o {
+.product-tab .tab-content .single-review .product-star-rating span i.star-o {
   color: #d6d6d6;
 }
 
-.product-tab .tab-content .add-review .star-rating {
+.product-tab .tab-content .add-review .product-star-rating {
   margin-top: 7px;
 }
 
-.product-tab .tab-content .add-review .star-rating p {
+.product-tab .tab-content .add-review .product-star-rating p {
   display: inline-block;
 }
 
-.product-tab .tab-content .add-review .star-rating span {
+.product-tab .tab-content .add-review .product-star-rating span {
   color: #ffcc00;
 }
 
-.product-tab .tab-content .add-review .star-rating span i.star-o {
+.product-tab .tab-content .add-review .product-star-rating span i.star-o {
   color: #d6d6d6;
 }
 

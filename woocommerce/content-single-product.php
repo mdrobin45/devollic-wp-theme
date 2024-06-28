@@ -81,7 +81,7 @@ if ( post_password_required() ) {
                               <div class="single-review">
                                  <h6 class="name"><?php echo get_comment_author( $comment ); ?></h6>
                                  <span class="date"><?php echo get_comment_date( 'd F Y', $comment ); ?></span>
-                                 <div class="star-rating">
+                                 <div class="product-star-rating">
                                     <?php
                                     $rating = intval( get_comment_meta( $comment->comment_ID, 'rating', true ) );
                                     for ( $i = 1; $i <= 5; $i++ ) {
