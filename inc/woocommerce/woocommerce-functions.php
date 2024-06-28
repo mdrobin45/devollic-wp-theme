@@ -160,7 +160,7 @@ add_action('devollic_product_single_page_title_category','devollic_product_title
 function devollic_product_title_category(){
    global $product;
 
-   echo "<h4>Landing page - Kitchen</h4>";
+   echo "<h4>".get_the_title()."</h4>";
    
    $categories_term = get_the_terms($product->get_id(), 'product_cat');
 
