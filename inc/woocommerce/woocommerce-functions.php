@@ -135,7 +135,7 @@ function devollic_single_product_sidebar_function(){
    global $product;
    $product_price = $product->get_price();
    $total_sales = $product->get_total_sales();
-   $rating_count = $product->get_rating_count();
+   $rating_count = $product->get_review_count();
    $product_id = $product->get_id();
    $product_url = esc_url($product->add_to_cart_url());
 
@@ -180,6 +180,15 @@ add_action('devollic_total_rating_count',"devollic_rating_count");
 function devollic_rating_count(){
    global $product;
 
-   $rating_count = $product -> get_rating_count();
+   $rating_count = $product -> get_review_count();
    echo $rating_count;
+}
+
+// Product description
+add_action('devollic_product_description','devollic_product_description');
+function devollic_product_description(){
+   global $product;
+
+   $description = $product -> get_description();
+   echo $description;
 }
