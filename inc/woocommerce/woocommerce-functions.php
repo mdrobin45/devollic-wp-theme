@@ -188,10 +188,7 @@ function devollic_single_product_tags(){
 
    $tags_array=array();
    foreach($tags_ids as $tags_id){
-      echo get_term($tags_id,'product_tag');
-      // if(!is_wp_error($tag)){
-      //    $tags_array[] = $tag->name;
-      // }
+     echo $tags_id; 
    };
 
    
