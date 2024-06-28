@@ -86,9 +86,9 @@ if ( post_password_required() ) {
                                     $rating = intval( get_comment_meta( $comment->comment_ID, 'rating', true ) );
                                     for ( $i = 1; $i <= 5; $i++ ) {
                                           if ( $i <= $rating ) {
-                                             echo '<span><i class="la la-star"></i></span>';
+                                             echo '<span><i class="fa-solid fa-star"></i></span>';
                                           } else {
-                                             echo '<span><i class="la la-star-o"></i></span>';
+                                             echo '<span><i class="fa-regular fa-star"></i></span>';
                                           }
                                     }
                                     ?>
@@ -96,24 +96,6 @@ if ( post_password_required() ) {
                                  <p><?php echo esc_html( get_comment_text( $comment ) ); ?></p>
                               </div>
                         <?php endforeach; ?>
-                     </div>
-                     
-                     <div class="single-review">
-                        <h6 class="name">Tom Clark</h6>
-                        <span class="date">13 August 2019</span>
-                        <div class="star-rating">
-                           <span><i class="la la-star"></i></span>
-                           <span><i class="la la-star"></i></span>
-                           <span><i class="la la-star"></i></span>
-                           <span><i class="la la-star"></i></span>
-                           <span><i class="la la-star-o"></i></span>
-                        </div>
-                        <p>
-                           Lorem ipsum dolor sit amet, consetetur sadipscing
-                           elitr, sed diam nonumy eirmod tempor invidunt ut
-                           labore et dolore magna aliquyam erat, sed diam
-                           voluptua. At vero eos et accusam et.
-                        </p>
                      </div>
                      <div class="add-review">
                         <h5 class="title">Add Review</h5>
