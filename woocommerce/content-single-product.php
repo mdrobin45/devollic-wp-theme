@@ -72,28 +72,35 @@ if ( post_password_required() ) {
                   </div>
                   <div class="tab-pane fade" id="pills-profile">
                      <h5 class="title">Reviews <?php echo $product->get_review_count(); ?></h5>
-                     <?php if(have_comments()): 
-                       $comments = wp_list_comments( apply_filters( 'woocommerce_product_review_list_args', array( 'callback' => 'woocommerce_comments' ) ));
-                        echo $comments;
-                        ?>
-                        <div class="single-review">
-                           <h6 class="name"><?php comment_author(); ?></h6>
-                           <span class="date">13 August 2019</span>
-                           <div class="star-rating">
-                              <span><i class="la la-star"></i></span>
-                              <span><i class="la la-star"></i></span>
-                              <span><i class="la la-star"></i></span>
-                              <span><i class="la la-star"></i></span>
-                              <span><i class="la la-star star-o"></i></span>
-                           </div>
-                           <p>
-                              Lorem ipsum dolor sit amet, consetetur sadipscing
-                              elitr, sed diam nonumy eirmod tempor invidunt ut
-                              labore et dolore magna aliquyam erat, sed diam
-                              voluptua. At vero eos et accusam et.
-                           </p>
-                        </div>
-                     <?php endif; ?>
+                     <?php if ( have_comments() ) : ?>
+                     <div class="comments-list">
+                        <?php
+                        $comments = get_comments( array(
+                              'post_id' => get_the_ID(),
+                              'status'  => 'approve'
+                        ) );
+
+                        foreach ( $comments as $comment ) : ?>
+                              <div class="single-review">
+                                 <h6 class="name"><?php echo get_comment_author( $comment ); ?></h6>
+                                 <span class="date"><?php echo get_comment_date( 'd F Y', $comment ); ?></span>
+                                 <div class="star-rating">
+                                    <?php
+                                    $rating = intval( get_comment_meta( $comment->comment_ID, 'rating', true ) );
+                                    for ( $i = 1; $i <= 5; $i++ ) {
+                                          if ( $i <= $rating ) {
+                                             echo '<span><i class="la la-star"></i></span>';
+                                          } else {
+                                             echo '<span><i class="la la-star-o"></i></span>';
+                                          }
+                                    }
+                                    ?>
+                                 </div>
+                                 <p><?php echo esc_html( get_comment_text( $comment ) ); ?></p>
+                              </div>
+                        <?php endforeach; ?>
+                     </div>
+                  <?php endif; ?>
                      
                      <div class="single-review">
                         <h6 class="name">Tom Clark</h6>
