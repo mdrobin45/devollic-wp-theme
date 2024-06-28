@@ -80,7 +80,8 @@ if ( post_password_required() ) {
                         ));
                         wp_list_comments( array( 'callback' => 'woocommerce_comments' ), $comments);
                         
-                        echo "Comments". $comments;
+                        print_r($comments);
+                        exit();
 
                         foreach ( $comments as $comment ) : ?>
                               <div class="single-review">
