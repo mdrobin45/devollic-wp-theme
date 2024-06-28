@@ -78,9 +78,9 @@ if ( post_password_required() ) {
                         $comments = get_comments( array(
                               'post_type' => 'product',
                         ));
-                        $wecomments = wp_list_comments( array( 'callback' => 'woocommerce_comments' ), $comments);
-                        echo $wecomments;
-                        echo $comments;
+                        wp_list_comments( array( 'callback' => 'woocommerce_comments' ), $comments);
+                        
+                        echo "Comments". $comments;
 
                         foreach ( $comments as $comment ) : ?>
                               <div class="single-review">
