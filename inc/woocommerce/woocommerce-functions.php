@@ -178,8 +178,8 @@ function devollic_product_title_category(){
 // SHow tags
 add_action('devollic_single_product_tags_hook','devollic_single_product_tags');
 function devollic_single_product_tags(){
-   // global $product;
-   $tags = get_the_terms( 'product_tag');
+   global $product;
+   $tags = $product->get_tag_ids();
 
    // if(empty($tags)){
    //    return;
