@@ -78,7 +78,9 @@ if ( post_password_required() ) {
                         $comments = get_comments( array(
                               'post_type' => 'product',
                               'status'  => 'approve',
-                        ) );
+                        ));
+                        $wecomments = wp_list_comments( array( 'callback' => 'woocommerce_comments' ), $comments);
+                        echo $wecomments;
                         echo $comments;
 
                         foreach ( $comments as $comment ) : ?>
