@@ -68,27 +68,15 @@ if ( post_password_required() ) {
                </ul>
                <div class="tab-content">
                   <div class="tab-pane fade show active" id="pills-home">
-                  <?php
-                     
-                     $comments = get_comments( array(
-                        'post_type' => 'product',
-                  ));
-                  echo count($comments) ?? 0;
-                  exit();
-                     
-                     ?>
                      <?php echo $product->get_description(); ?>
                   </div>
                   <div class="tab-pane fade" id="pills-profile">
                      <h5 class="title">Reviews <?php echo $product->get_review_count(); ?></h5>
-                     <?php if ( have_comments() ) : ?>
                      <div class="comments-list">
                         <?php
                         $comments = get_comments( array(
                               'post_type' => 'product',
                         ));
-                       
-                        wp_list_comments( array( 'callback' => 'woocommerce_comments' ), $comments);
                         foreach ( $comments as $comment ) : ?>
                               <div class="single-review">
                                  <h6 class="name"><?php echo get_comment_author( $comment ); ?></h6>
@@ -109,7 +97,6 @@ if ( post_password_required() ) {
                               </div>
                         <?php endforeach; ?>
                      </div>
-                  <?php endif; ?>
                      
                      <div class="single-review">
                         <h6 class="name">Tom Clark</h6>
