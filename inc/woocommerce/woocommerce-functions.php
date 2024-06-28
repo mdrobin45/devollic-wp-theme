@@ -188,7 +188,8 @@ function devollic_single_product_tags(){
 
    $tags_array=array();
    foreach($tags_ids as $tags_id){
-     echo get_tag( $tags_id );
+      $term_tag = get_tag( $tags_id );
+     echo $term_tag;
    };
 
    
