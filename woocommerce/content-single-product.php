@@ -72,7 +72,10 @@ if ( post_password_required() ) {
                   </div>
                   <div class="tab-pane fade" id="pills-profile">
                      <h5 class="title">Reviews <?php echo $product->get_review_count(); ?></h5>
-                     <?php if(have_comments()): ?>
+                     <?php if(have_comments()): 
+                       $comments = wp_list_comments( apply_filters( 'woocommerce_product_review_list_args', array( 'callback' => 'woocommerce_comments' ) ));
+                        echo $comments;
+                        ?>
                         <div class="single-review">
                            <h6 class="name"><?php comment_author(); ?></h6>
                            <span class="date">13 August 2019</span>
