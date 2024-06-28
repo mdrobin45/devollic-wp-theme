@@ -72,23 +72,26 @@ if ( post_password_required() ) {
                   </div>
                   <div class="tab-pane fade" id="pills-profile">
                      <h5 class="title">Reviews <?php echo $product->get_review_count(); ?></h5>
-                     <div class="single-review">
-                        <h6 class="name">Tyler Bailey</h6>
-                        <span class="date">13 August 2019</span>
-                        <div class="star-rating">
-                           <span><i class="la la-star"></i></span>
-                           <span><i class="la la-star"></i></span>
-                           <span><i class="la la-star"></i></span>
-                           <span><i class="la la-star"></i></span>
-                           <span><i class="la la-star star-o"></i></span>
+                     <?php if(have_comments()): ?>
+                        <div class="single-review">
+                           <h6 class="name"><?php comment_author(); ?></h6>
+                           <span class="date">13 August 2019</span>
+                           <div class="star-rating">
+                              <span><i class="la la-star"></i></span>
+                              <span><i class="la la-star"></i></span>
+                              <span><i class="la la-star"></i></span>
+                              <span><i class="la la-star"></i></span>
+                              <span><i class="la la-star star-o"></i></span>
+                           </div>
+                           <p>
+                              Lorem ipsum dolor sit amet, consetetur sadipscing
+                              elitr, sed diam nonumy eirmod tempor invidunt ut
+                              labore et dolore magna aliquyam erat, sed diam
+                              voluptua. At vero eos et accusam et.
+                           </p>
                         </div>
-                        <p>
-                           Lorem ipsum dolor sit amet, consetetur sadipscing
-                           elitr, sed diam nonumy eirmod tempor invidunt ut
-                           labore et dolore magna aliquyam erat, sed diam
-                           voluptua. At vero eos et accusam et.
-                        </p>
-                     </div>
+                     <?php endif; ?>
+                     
                      <div class="single-review">
                         <h6 class="name">Tom Clark</h6>
                         <span class="date">13 August 2019</span>
