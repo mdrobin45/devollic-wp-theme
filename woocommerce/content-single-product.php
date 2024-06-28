@@ -203,7 +203,6 @@ if ( post_password_required() ) {
                <div class="widget widget-cart">
                   <div class="widget-cart-inner text-center">
                      <?php do_action('devollic_product_details_sidebar'); ?>
-                     <a class="btn btn-base" href="#">Add to cart</a>
                   </div>
                </div>
                <div class="widget widget-list">
