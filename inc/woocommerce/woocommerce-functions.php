@@ -129,19 +129,25 @@ function custom_woocommerce_view_cart_url() {
 add_filter('woocommerce_get_cart_url', 'custom_woocommerce_view_cart_url');
 
 
-// Remove single product hook
-remove_action('woocommerce_single_product_summary','woocommerce_template_single_price',10);
-remove_action('woocommerce_single_product_summary','woocommerce_template_single_title',5);
-remove_action('woocommerce_single_product_summary','woocommerce_template_single_rating',10);
-remove_action('woocommerce_single_product_summary','woocommerce_template_single_excerpt',20);
-remove_action('woocommerce_single_product_summary','woocommerce_template_single_add_to_cart',30);
-remove_action('woocommerce_single_product_summary','woocommerce_template_single_meta',40);
-remove_action('woocommerce_single_product_summary','woocommerce_template_single_sharing',50);
-
 // Add function for single product price
-add_action('woocommerce_single_product_summary','devollic_single_product_price',10);
-function devollic_single_product_price(){
+add_action('devollic_product_details_sidebar','devollic_single_product_sidebar_function');
+function devollic_single_product_sidebar_function(){
    global $product;
    $product_price = $product->get_price();
+   $total_sales = $product->get_total_sales();
+   $rating_count = $product->get_rating_count();
 
    echo "<h3 class='price'>".wc_price($product_price)."</h3>";
+   echo '<span class="ratting">
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i>
+   </span>';
+   echo "<ul>";
+      echo "<li><i class='fa fa-shopping-cart'></i>".$total_sales." Sales</li>";
+      echo "<li><i class='fa fa-star'></i>".$rating_count." Ratting</li>";
+      echo "<li><i class='fa fa-eye'></i>125 Views</li>";
+   echo "</ul>";
+}
