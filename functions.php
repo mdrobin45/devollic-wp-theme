@@ -103,7 +103,7 @@ function devollic_setup() {
    // Woocommerce Support
    add_theme_support( 'woocommerce' );
 
-   add_image_size( 'product-details-thumb', 710, 331 );
+   add_image_size( 'product-details-thumb', 710, 331,true );
 }
 add_action( 'after_setup_theme', 'devollic_setup' );
 
