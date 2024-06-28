@@ -174,3 +174,12 @@ function devollic_product_title_category(){
    }
    
 }
+
+// Total Rating count
+add_action('devollic_total_rating_count',"devollic_rating_count");
+function devollic_rating_count(){
+   global $product;
+
+   $rating_count = $product -> get_rating_count();
+   echo $rating_count;
+}

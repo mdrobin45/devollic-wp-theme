@@ -62,7 +62,7 @@ if ( post_password_required() ) {
                         class="nav-link"
                         data-toggle="pill"
                         href="#pills-profile"
-                        >Reviews (2)</a
+                        >Reviews <?php do_action('devollic_total_rating_count'); ?></a
                      >
                   </li>
                </ul>
@@ -119,7 +119,7 @@ if ( post_password_required() ) {
                      </ul>
                   </div>
                   <div class="tab-pane fade" id="pills-profile">
-                     <h5 class="title">Reviews (2)</h5>
+                     <h5 class="title">Reviews <?php do_action('devollic_total_rating_count'); ?></h5>
                      <div class="single-review">
                         <h6 class="name">Tyler Bailey</h6>
                         <span class="date">13 August 2019</span>
