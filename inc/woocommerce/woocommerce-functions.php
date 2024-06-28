@@ -174,3 +174,23 @@ function devollic_product_title_category(){
    }
    
 }
+
+// SHow tags
+add_action('devollic_single_product_tags_hook','devollic_single_product_tags');
+function devollic_single_product_tags(){
+   global $product;
+   $tag_ids = $products->get_tag_ids();
+
+   if(empty($tag_ids)){
+      return;
+   };
+
+   $tags = array();
+   foreach($tag_ids as $tag_id){
+      $tag = get_term($tag_id,'product_tag');
+      if(!is_wp_error($tag)){
+         $tags[] = $tag->name;
+      }
+   };
+   echo "<span>Tags</span>".implode(', ', $tags);
+}
