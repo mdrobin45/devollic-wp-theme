@@ -76,9 +76,8 @@ if ( post_password_required() ) {
                      <div class="comments-list">
                         <?php
                         $comments = get_comments( array(
-                              'post_id' => get_the_ID(),
+                              'post_type' => 'product',
                               'status'  => 'approve',
-                              'type'    => 'review',
                         ) );
                         echo $comments;
 
