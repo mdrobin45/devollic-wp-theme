@@ -99,14 +99,14 @@ if ( post_password_required() ) {
                      </div>
                      <div class="add-review">
                         <h5 class="title">Add Review</h5>
-                        <div class="star-rating">
+                        <!-- <div class="star-rating">
                            <p>Your Rating:</p>
                            <span><i class="la la-star star-o"></i></span>
                            <span><i class="la la-star star-o"></i></span>
                            <span><i class="la la-star star-o"></i></span>
                            <span><i class="la la-star star-o"></i></span>
                            <span><i class="la la-star star-o"></i></span>
-                        </div>
+                        </div> -->
                         <form class="contact-form">
                            <div class="row">
                               <div class="col-12">
