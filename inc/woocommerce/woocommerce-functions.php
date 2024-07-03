@@ -182,7 +182,9 @@ function devollic_product_title_category(){
 add_action('devollic_product_page_image','devolli_show_product_page_image');
 function devolli_show_product_page_image(){
    global $product;
-   $image_id = $product->get_image_id();
+
+   $product_id=$product->get_id();
+   $image_id = get_field('devollic_single_product_thumbnail', $product_id);
 
    if(!$image_id){
       return "No image available";
