@@ -191,12 +191,6 @@ function devolli_show_product_page_image(){
    $thumb_url = get_field('devollic_single_product_thumbnail');
    $preview_link = get_field('devollic_single_product_preview_link');
 
-   // // Convert thumb url to id
-   // $thumb_id = attachment_url_to_postid( $thumb_url );
-
-   // // Get image url
-   // $image_url = wp_get_attachment_image_url( $thumb_id,'product-details-thumb');
-
    echo "<img class='w-100' src='".$thumb_url."' alt='' />";
 
    if($preview_link){
