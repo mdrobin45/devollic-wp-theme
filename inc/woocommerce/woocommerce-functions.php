@@ -182,16 +182,15 @@ function devollic_product_title_category(){
 add_action('devollic_product_page_image','devolli_show_product_page_image');
 function devolli_show_product_page_image(){
    global $product;
-
-   $product_id = $product->get_id();
-   $image_id = get_field('devollic_single_product_thumbnail', $product_id);
-   echo $image_id;
-   print_r($image_id);
+   
+   $product_id=$product->get_id();
+   $image_id = $product->get_image_id();
+   $img_id = get_field('devollic_single_product_thumbnail',$product_id);
 
    if(!$image_id){
       return "No image available";
    }
 
    $image_url = wp_get_attachment_image_url( $image_id,'product-details-thumb');
-   echo "<img class='w-100' src='".$image_url."' alt='image' />";
+   echo "<img class='w-100' src='".$image_url."' alt='".$img_id."' />";
 }
