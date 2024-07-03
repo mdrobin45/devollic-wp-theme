@@ -35,9 +35,12 @@ function devollic_add_product_price_class()
     }
 
     $price_html = $product->get_regular_price();
+   //  $price = $product -> get_price();
 
     if ($price_html) {
         echo "<div class='product-card__meta_price'>" . wc_price($price_html) . "</div>";
+    }else{
+      echo "<div class='product-card__meta_price'>".esc_html('Free')."</div>";
     }
 }
 
