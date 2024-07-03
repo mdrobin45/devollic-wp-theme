@@ -191,6 +191,8 @@ function devolli_show_product_page_image(){
    $thumb_url = get_field('devollic_single_product_thumbnail');
    $preview_link = get_field('devollic_single_product_preview_link');
 
+   echo $preview_link;
+   exit();
    // // Convert thumb url to id
    // $thumb_id = attachment_url_to_postid( $thumb_url );
 
