@@ -187,6 +187,7 @@ function devolli_show_product_page_image(){
    // $image_id = $product->get_image_id();
    $img_id = get_field('devollic_single_product_thumbnail', $product_id);
    echo $img_id;
+   echo "Something";
    exit();
 
    if(!$img_id){
