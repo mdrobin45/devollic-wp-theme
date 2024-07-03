@@ -3511,6 +3511,7 @@ ul {
 .product-tab .nav-pills {
   display: block;
   margin-bottom: 36px;
+  margin-left: 0;
 }
 
 .product-tab .nav-pills .nav-item {
