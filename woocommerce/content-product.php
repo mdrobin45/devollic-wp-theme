@@ -24,7 +24,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<div class="col-12 col-md-6">
+<div class="col-12 col-md-4">
    <div <?php wc_product_class( '', $product ); ?>>
       <div class="product-card">
          <?php
