@@ -200,7 +200,7 @@ function devolli_show_product_page_image(){
    echo "<img class='w-100' src='".$image_url."' alt='' />";
 
    if($preview_link){
-      echo "<a class='btn btn-white' href='".esc_url($preview_link)."'>".esc_html('Live Preview')."</a>";
+      echo "<a target='_blank' class='btn btn-white' href='".esc_url($preview_link)."'>".esc_html('Live Preview')."</a>";
    }
 }
 
