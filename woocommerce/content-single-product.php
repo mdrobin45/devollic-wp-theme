@@ -32,9 +32,9 @@ if ( post_password_required() ) {
 }
 ?>
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
-<div class="row">
    <div class="container">
-      <div class="col-lg-8">
+      <div class="row">
+         <div class="col-lg-8">
             <div class="single-product-wrap">
                <div class="thumb">
                   <!-- <img
@@ -162,9 +162,9 @@ if ( post_password_required() ) {
                </div>
             </div>
          </div>
-   </div>
-         
       </div>
 </div>
+   </div>
+
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>

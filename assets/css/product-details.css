@@ -142,6 +142,11 @@ ol li:before {
   font-weight: 500;
   margin-right: 10px;
 }
+.container{
+   max-width: 1260px !important;
+   padding-top: 60px;
+
+}
 
 button:hover,
 button:active,
