@@ -17,6 +17,10 @@
    --size-24: 1.5rem;
    --white: #fff;
    --border-color: #d1d5db80;
+   --warning-50: #FEFCE8;
+  --warning-100: #FEF9C3;
+  --warning-200: #FEF08A;
+  --warning-300: #FDE047;
 }
 
 /* Global account page style */
@@ -295,4 +299,7 @@ ul, ol {
 }
 .bg-success-focus {
    background-color: var(--success-focus) !important;
+}
+.bg-on-hold{
+   background-color: var(--warning-50);
 }

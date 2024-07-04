@@ -40,36 +40,54 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
                      </tr>
                   </thead>
                   <tbody>
-                     <tr>
-                        <td>
-                           <label class="form-check-label"> 01 </label>
-                        </td>
-                        <td>
-                           <a href="javascript:void(0)" class="text-primary-600"
-                              >#526534</a
-                           >
-                        </td>
-                        <td>25 Jan 2024</td>
-                        <td>$200.00</td>
-                        <td>
-                           <span
-                              class="bg-success-focus fw-medium p-1 px-24 rounded-1 text-sm text-success-main"
-                              >Paid</span
-                           >
-                        </td>
-                        <td>
-                           <a
-                              href="javascript:void(0)"
-                              class="w-32-px h-32-px bg-primary-light text-primary-600 rounded-circle d-inline-flex align-items-center justify-content-center">
-                              <i class="fa-regular fa-eye"></i>
-                           </a>
-                           <a
-                              href="javascript:void(0)"
-                              class="w-32-px h-32-px bg-success-focus text-primary-600 rounded-circle d-inline-flex align-items-center justify-content-center">
-                              <i class="fa-solid fa-file-invoice"></i>
-                           </a>
-                        </td>
-                     </tr>
+                  <?php
+                     foreach ( $customer_orders->orders as $customer_order ) {
+                        $order      = wc_get_order( $customer_order ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+                        $item_count = $order->get_item_count() - $order->get_item_count_refunded();
+
+                        $order_id= $order->get_id();
+                        $order_date = $order->get_date_created()->date('c');
+                        $order_status = $order->get_status();
+                        $order_total = $order->get_total();
+                        $order_view_url = $order->get_view_order_url();
+                        ?>
+                        <tr>
+                           <td>
+                              <label class="form-check-label"> 01 </label>
+                           </td>
+                           <td>
+                              <a href="<?php echo esc_url($order_view_url); ?>" class="text-primary-600"
+                                 >#<?php echo esc_html($order_id) ;?></a
+                              >
+                           </td>
+                           <td><time datetime="<?php echo esc_attr( $order->get_date_created()->date( 'c' ) ); ?>"><?php echo esc_html( wc_format_datetime( $order->get_date_created() ) ); ?></time></td>
+                           <td>
+                              <?php
+                              echo wc_price($order_total)." for ".$item_count." item";
+                              ?>
+                           </td>
+                           <td>
+                              <span
+                                 class="bg-on-hold fw-medium p-1 px-24 rounded-1 text-sm text-success-main"
+                                 ><?php echo esc_html($order_status); ?></span
+                              >
+                           </td>
+                           <td>
+                              <a
+                                 href="<?php echo esc_url($order_view_url);?>"
+                                 class="w-32-px h-32-px bg-primary-light text-primary-600 rounded-circle d-inline-flex align-items-center justify-content-center">
+                                 <i class="fa-regular fa-eye"></i>
+                              </a>
+                              <a
+                                 href="javascript:void(0)"
+                                 class="w-32-px h-32-px bg-success-focus text-primary-600 rounded-circle d-inline-flex align-items-center justify-content-center">
+                                 <i class="fa-solid fa-file-invoice"></i>
+                              </a>
+                           </td>
+                        </tr>
+                        <?php
+                     }
+                     ?>
                   </tbody>
                </table>
             </div>

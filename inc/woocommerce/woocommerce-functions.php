@@ -272,3 +272,4 @@ function devollic_get_logged_in_user_info(){
       </div>
    <?php endif; ?>
 <?php }
+
