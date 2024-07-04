@@ -198,3 +198,78 @@ function devolli_show_product_page_image(){
    }
 }
 
+/// ==============================
+/// Account page - Logged in user info
+/// ==============================
+add_action('devollic_logged_in_user_info','devollic_get_logged_in_user_info');
+function devollic_get_logged_in_user_info(){
+   if(is_user_logged_in()):
+
+      // Get the current user's ID
+      $user_id = get_current_user_id();
+
+      // Get the avatar for the user
+      $avatar_url = get_avatar_url($user_id); 
+      
+      // Get current user data
+      $current_user = wp_get_current_user();
+
+      $user_name = $current_user->display_name;
+      $user_email = $current_user->user_email;
+      $user_website = $current_user->user_url;
+      $first_name = get_user_meta($user_id,'first_name', true);
+      $last_name = get_user_meta($user_id,'last_name', true);
+      ?>
+
+      <img
+      src="<?php site_url(); ?> /wp-content/uploads/2024/07/profile-bg-scaled.jpg"
+      alt=""
+      class="w-100 object-fit-cover profile-avatar" />
+      <div class="pb-24 ms-16 mb-24 me-16 mt--100">
+         <div
+            class="text-center border border-top-0 border-start-0 border-end-0">
+            <img
+               src="<?php echo esc_url($avatar_url); ?>"
+               alt=""
+               class="border br-white border-width-2-px w-200-px h-200-px rounded-circle object-fit-cover" />
+            <h6 class="mb-0 mt-16"><?php echo $user_name; ?></h6>
+            <span class="text-secondary-light mb-16"
+               ><?php echo $user_email; ?></span
+            >
+         </div>
+         <div class="mt-24">
+            <h6 class="text-xl mb-16">Personal Info</h6>
+            <ul>
+               <li class="d-flex align-items-center gap-1 mb-12">
+                  <span
+                     class="w-30 text-md fw-semibold text-primary-light"
+                     >Full Name</span
+                  >
+                  <span class="w-70 text-secondary-light fw-medium"
+                     >: <?php echo $first_name ? $first_name." ".$last_name : 'Not available'; ?></span
+                  >
+               </li>
+               <li class="d-flex align-items-center gap-1 mb-12">
+                  <span
+                     class="w-30 text-md fw-semibold text-primary-light">
+                     Email</span
+                  >
+                  <span class="w-70 text-secondary-light fw-medium"
+                     >: <?php echo $user_email; ?></span
+                  >
+               </li>
+               <li class="d-flex align-items-center gap-1 mb-12">
+                  <span
+                     class="w-30 text-md fw-semibold text-primary-light">
+                     Website</span
+                  >
+                  <span class="w-70 text-secondary-light fw-medium"
+                     >: <?php echo $user_website ? $user_website : 'Not available'; ?></span
+                  >
+               </li>
+            </ul>
+         </div>
+      </div>
+   <?php endif; ?>
+
+<?php }

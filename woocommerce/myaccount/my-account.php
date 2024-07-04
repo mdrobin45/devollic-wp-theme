@@ -29,7 +29,7 @@ defined( 'ABSPATH' ) || exit;
             <div class="col-lg-4">
                <div
                   class="user-grid-card position-relative border radius-16 overflow-hidden bg-base h-100">
-                  <img
+                  <!-- <img
                      src="assets/images/user-grid/user-grid-bg1.png"
                      alt=""
                      class="w-100 object-fit-cover" />
@@ -114,81 +114,19 @@ defined( 'ABSPATH' ) || exit;
                            </li>
                         </ul>
                      </div>
-                  </div>
+                  </div> -->
+                  <?php do_action('devollic_logged_in_user_info'); ?>
                </div>
             </div>
             <div class="col-lg-8">
                <div class="card h-100">
                   <div class="card-body p-24">
-                     <ul
-                        class="nav border-gradient-tab nav-pills mb-20 d-inline-flex"
-                        id="pills-tab"
-                        role="tablist">
-                        <li class="nav-item" role="presentation">
-                           <button
-                              class="nav-link d-flex align-items-center px-24 active"
-                              id="my-ac-orders-tab"
-                              data-bs-toggle="pill"
-                              data-bs-target="#my-ac-orders"
-                              type="button"
-                              role="tab"
-                              aria-controls="my-ac-orders"
-                              aria-selected="true">
-                              Orders
-                           </button>
+                     <ul class="nav border-gradient-tab nav-pills mb-20 d-inline-flex">
+                     <?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
+                        <li class="nav-link <?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">
+                           <a class="nav-link d-flex align-items-center px-24" href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"><?php echo esc_html( $label ); ?></a>
                         </li>
-                        <li class="nav-item" role="presentation">
-                           <button
-                              class="nav-link d-flex align-items-center px-24"
-                              id="my-ac-downloads-tab"
-                              data-bs-toggle="pill"
-                              data-bs-target="#my-ac-downloads"
-                              type="button"
-                              role="tab"
-                              aria-controls="my-ac-downloads"
-                              aria-selected="true">
-                              Downloads
-                           </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                           <button
-                              class="nav-link d-flex align-items-center px-24"
-                              id="my-ac-address-tab"
-                              data-bs-toggle="pill"
-                              data-bs-target="#my-ac-address"
-                              type="button"
-                              role="tab"
-                              aria-controls="my-ac-address"
-                              aria-selected="true">
-                              Addresss
-                           </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                           <button
-                              class="nav-link d-flex align-items-center px-24"
-                              id="my-ac-payment-methods-tab"
-                              data-bs-toggle="pill"
-                              data-bs-target="#my-ac-payment-methods"
-                              type="button"
-                              role="tab"
-                              aria-controls="my-ac-payment-methods"
-                              aria-selected="true">
-                              Payment Methods
-                           </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                           <button
-                              class="nav-link d-flex align-items-center px-24"
-                              id="my-ac-edit-profile-tab"
-                              data-bs-toggle="pill"
-                              data-bs-target="#my-ac-edit-profile"
-                              type="button"
-                              role="tab"
-                              aria-controls="my-ac-edit-profile"
-                              aria-selected="true">
-                              Edit Profile
-                           </button>
-                        </li>
+                     <?php endforeach; ?>
                      </ul>
 
                      <div class="tab-content" id="pills-tabContent">

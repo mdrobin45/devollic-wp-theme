@@ -39,18 +39,21 @@
    position: relative;
  }
  
- .border-gradient-tab .nav-link.active {
+ .border-gradient-tab .nav-link.is-active {
    color: var(--text-primary-light) !important;
  }
  
- .border-gradient-tab .nav-link.active::before {
+ .border-gradient-tab .nav-link.is-active::before {
    visibility: visible;
    opacity: 1;
  }
  
- .border-gradient-tab .nav-link.active .notification-alert {
+ .border-gradient-tab .nav-link.is-active .notification-alert {
    background-color: var(--primary-600) !important;
    color: #fff !important;
+ }
+ .profile-avatar{
+   height: 200px !important;
  }
  
  .border-gradient-tab .nav-link::before {
