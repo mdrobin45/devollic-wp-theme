@@ -35,9 +35,12 @@ function devollic_add_product_price_class()
     }
 
     $price_html = $product->get_regular_price();
+   //  $price = $product -> get_price();
 
     if ($price_html) {
         echo "<div class='product-card__meta_price'>" . wc_price($price_html) . "</div>";
+    }else{
+      echo "<div class='product-card__meta_price'>".esc_html('Free')."</div>";
     }
 }
 
@@ -175,16 +178,23 @@ function devollic_product_title_category(){
    
 }
 
-// single product thumbnail image
-add_action('devollic_product_page_image','devolli_show_product_page_image');
+/// ==============================
+/// Single product page - Image and preview link
+/// ==============================
+add_action('devollic_product_page_thumbnail','devolli_show_product_page_image');
 function devolli_show_product_page_image(){
    global $product;
-   $image_id = $product->get_image_id();
+   
+   $product_id = $product->get_id();
 
-   if(!$image_id){
-      return "No image available";
+   // Retrieve ACF field value
+   $thumb_url = get_field('devollic_single_product_thumbnail');
+   $preview_link = get_field('devollic_single_product_preview_link');
+
+   echo "<img class='w-100' src='".$thumb_url."' alt='' />";
+
+   if($preview_link){
+      echo "<a target='_blank' class='btn btn-white' href='".esc_url($preview_link)."'>".esc_html('Live Preview')."</a>";
    }
-
-   $image_url = wp_get_attachment_image_url( $image_id,'product-details-thumb');
-   echo "<img class='w-100' src='".$image_url."' alt='image' />";
 }
+

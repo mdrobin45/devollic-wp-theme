@@ -18,12 +18,12 @@ figure.product-card__image-wrapper img{
    border-radius: 10px 10px 0px 0px;
    background: #fff;
    box-shadow: 0px 8px 20px 0px rgba(182, 182, 182, 0.40);
-   padding-top: 20px;
+   padding-top: 34px;
    padding-left: 20px;
    padding-right: 20px;
    border-bottom-left-radius: 10px;
    border-bottom-right-radius: 10px;
-   padding-bottom: 35px;
+   padding-bottom: 27px;
 }
 .product-card__meta_title {
    font-family: "Public Sans" !important;
@@ -32,6 +32,7 @@ figure.product-card__image-wrapper img{
    color: #3D3D3D !important;
    font-weight: 600 !important;
    margin: 0 !important;
+   line-height: 25px !important;
 }
 .product_card_meta_categories {
    font-size: 14px;
@@ -78,6 +79,7 @@ figure.product-card__image-wrapper img{
    left:0;
    right:0;
    padding:0;
+   width: 100%;
 }
 
 .product_card__meta_button{
