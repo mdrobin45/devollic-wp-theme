@@ -167,6 +167,13 @@ function devollic_scripts() {
       wp_enqueue_script( 'product-details-script', get_template_directory_uri() . '/assets/js/product-details.js', array(), _S_VERSION, true );
    }
 
+   // Enqueue if user logged in and is this the account  page
+   if(is_user_logged_in() && is_account_page()){
+      wp_enqueue_style( 'account-page-style', get_template_directory_uri().'/assets/css/account-page.css', [], _S_VERSION, 'all' );
+      wp_enqueue_script( 'bootstrap-bundle', get_template_directory_uri() . '/assets/js/lib/bootstrap.bundle.min.js', array(), _S_VERSION, true );
+   }
+
+
 	wp_enqueue_script( 'devollic-image-hover-scroll', get_template_directory_uri() . '/assets/js/hover-image-scroll.js', array('jquery'), _S_VERSION, true );
 	wp_enqueue_script( 'devollic-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'fontawesome-kit', 'https://kit.fontawesome.com/62db3e136e.js', array(), _S_VERSION, true );

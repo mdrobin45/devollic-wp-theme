@@ -258,6 +258,11 @@ body, p, a, span, div, input, button,
 .woocommerce .woocommerce-error {
     font-family: 'Poppins', sans-serif;
 }
+.woocommerce-account .woocommerce-MyAccount-content{
+   width: 100%;
+   float: left;
+   padding-top: 30px;
+}
 .wc-checkout-coupon-input{
    height: 56px !important;
    width: 50% !important;
