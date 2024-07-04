@@ -8,13 +8,18 @@
    --purple-light-white: rgba(132, 90, 223, 0.25);
   --pink-light-white: rgba(250, 54, 230, 0.25);
   --font-md: 1rem;
+  --primary-light: rgba(72, 127, 255, 0.15);
    --primary-600: #487FFF;
+   --neutral-200: #EBECEF;
+   --success-focus: rgba(69, 179, 105, 0.1490196078);
    --success-border: #B5E1C3;
    --font-xl: 1.25rem;
    --size-24: 1.5rem;
    --white: #fff;
    --border-color: #d1d5db80;
 }
+
+/* Global account page style */
 .dashboard-main-body {
    padding: 0.9375rem;
  }
@@ -25,8 +30,40 @@
    }
  }
 
-/* Pill Tab Css End */
-/* Gradient Tab Css Start */
+.card {
+   background-color: var(--white);
+   border-radius: 8px;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   -ms-border-radius: 8px;
+   -o-border-radius: 8px;
+   box-shadow: 0 0.25rem 1.875rem rgba(46, 45, 116, 0.05);
+   border: none;
+   position: initial;
+   color: var(--text-secondary-light);
+ }
+ 
+ .card .card-header {
+   background-color: var(--white);
+   padding: 0.875rem 1.5rem;
+   border-color: var(--border-color);
+   color: var(--text-secondary-light);
+ }
+ 
+ .card .card-title {
+   font-size: 1.125rem !important;
+   font-weight: 600;
+   color: var(--text-primary-light);
+ }
+ 
+ .card .card-body {
+   padding: 0.875rem 1.5rem;
+   color: var(--text-secondary-light);
+ }
+
+/*
+* My account tabs
+*/
 .border-gradient-tab {
    border-top: 1px solid var(--input-form-light);
  }
@@ -69,39 +106,6 @@
    opacity: 0;
    transition: 0.2s linear;
  }
- /* === form css end === */
-/* === card css start === */
-.card {
-   background-color: var(--white);
-   border-radius: 8px;
-   -webkit-border-radius: 8px;
-   -moz-border-radius: 8px;
-   -ms-border-radius: 8px;
-   -o-border-radius: 8px;
-   box-shadow: 0 0.25rem 1.875rem rgba(46, 45, 116, 0.05);
-   border: none;
-   position: initial;
-   color: var(--text-secondary-light);
- }
- 
- .card .card-header {
-   background-color: var(--white);
-   padding: 0.875rem 1.5rem;
-   border-color: var(--border-color);
-   color: var(--text-secondary-light);
- }
- 
- .card .card-title {
-   font-size: 1.125rem !important;
-   font-weight: 600;
-   color: var(--text-primary-light);
- }
- 
- .card .card-body {
-   padding: 0.875rem 1.5rem;
-   color: var(--text-secondary-light);
- }
-/* === border css start === */
 
  .border-start {
    border-inline-start: 1px solid var(--border-color) !important;
@@ -226,4 +230,69 @@ ul, ol {
 }
 .w-70 {
    width: 70%;
+}
+
+
+/* 
+* Orders page styles
+*/
+.bordered-table {
+   border-spacing: 0;
+   border-collapse: separate;
+   border: 1px solid var(--neutral-200);
+   border-radius: 8px;
+   min-width: max-content;
+   vertical-align: middle;
+}
+.bordered-table tbody tr:last-child td {
+   border-bottom: 0;
+}
+.bordered-table tbody tr td {
+   color: var(--text-secondary-light);
+   padding: 16px !important;
+   border-bottom: 1px solid var(--neutral-200);
+   background-color: var(--white);
+   vertical-align: middle;
+}
+.bordered-table tbody tr:last-child td:first-child {
+   border-end-start-radius: 8px;
+}
+.radius-8 {
+   border-radius: 0.5rem;
+   -webkit-border-radius: 0.5rem;
+   -moz-border-radius: 0.5rem;
+   -ms-border-radius: 0.5rem;
+   -o-border-radius: 0.5rem;
+ }
+ .me-12 {
+   margin-inline-end: var(--size-12) !important;
+ }
+ .text-md {
+   font-size: var(--font-md) !important;
+}
+.bordered-table tbody tr:last-child td:last-child {
+   border-end-end-radius: 8px;
+}
+.bordered-table tbody tr td a{
+   text-decoration: none;
+}
+.bordered-table tbody tr td a .fa-regular.fa-eye{
+   color: var(--primary-600);
+   font-size: 14px;
+}
+.bordered-table tbody tr td a .fa-solid.fa-file-invoice{
+   color: #45B369;
+   font-size: 16px;
+}
+.h-32-px {
+   height: 2rem !important;
+}
+.w-32-px {
+   width: 2rem !important;
+}
+.bg-primary-light {
+   background-color: var(--primary-light) !important;
+}
+.bg-success-focus {
+   background-color: var(--success-focus) !important;
 }
