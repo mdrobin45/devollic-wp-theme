@@ -263,6 +263,9 @@ body, p, a, span, div, input, button,
    float: left !important;
    padding-top: 30px !important;
 }
+.entry-header{
+   display: none !important;
+}
 .wc-checkout-coupon-input{
    height: 56px !important;
    width: 50% !important;
