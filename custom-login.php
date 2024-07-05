@@ -10,7 +10,7 @@ get_header();
             <div
                class="d-flex align-items-center flex-column h-100 justify-content-center">
                <img
-                  src="https://wowdash.wowtheme7.com/demo/assets/images/auth/auth-img.png"
+                  src="<?php echo site_url()."/wp-content/uploads/2024/07/login-vector.jpg"; ?>"
                   alt="" />
             </div>
          </div>
@@ -20,7 +20,7 @@ get_header();
                <div>
                   <a href="index.html" class="mb-40 max-w-290-px">
                      <img
-                        src="https://wowdash.wowtheme7.com/demo/assets/images/logo.png"
+                        src="<?php echo site_url()."/wp-content/uploads/2024/06/devollic-logo.png"; ?>"
                         alt="" />
                   </a>
                   <h4 class="mb-12">Sign In to your Account</h4>
