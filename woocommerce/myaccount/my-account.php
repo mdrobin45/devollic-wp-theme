@@ -37,6 +37,7 @@ defined( 'ABSPATH' ) || exit;
                   <div class="card-body p-24">
                      <ul class="nav border-gradient-tab nav-pills mb-20 d-inline-flex">
                      <?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
+                        
                         <li class="nav-link <?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">
                            <a class="nav-link d-flex align-items-center px-24" href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"><?php echo esc_html( $label ); ?></a>
                         </li>
