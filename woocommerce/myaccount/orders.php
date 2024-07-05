@@ -67,7 +67,6 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
                               ?>
                            </td>
                            <td>
-                           <span class='bg-completed fw-medium p-1 px-24 rounded-1 text-sm text-success-main'><?php echo esc_html($order_status); ?></span>
                               <?php
                               switch ( $order_status ) {
                                  case "completed":
@@ -75,6 +74,9 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
                                     break;
                                  case "on-hold":
                                     echo "<span class='bg-on-hold fw-medium p-1 px-24 rounded-1 text-sm text-success-main'>".esc_html($order_status)."</span>";
+                                    break;
+                                 case "pending":
+                                    echo "<span class='bg-pending fw-medium p-1 px-24 rounded-1 text-sm text-success-main'>".esc_html($order_status)."</span>";
                                     break;
                                  case "processing":
                                     echo "<span class='bg-processing fw-medium p-1 px-24 rounded-1 text-sm text-success-main'>".esc_html($order_status)."</span>";

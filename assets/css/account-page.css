@@ -37,6 +37,8 @@
   --danger-200: #FECACA;
   --danger-300: #FCA5A5;
   --danger-600: #DC2626;
+  --lilac-50: #f0e1ff;
+  --lilac-600: #8252E9;
 }
 
 /* Global account page style */
@@ -331,4 +333,8 @@ ul, ol {
 .bg-cancelled{
    background-color: var(--danger-50);
    color: var(--danger-600);
+}
+.bg-pending{
+   background-color: var(--lilac-50);
+   color: var(--lilac-600);
 }
