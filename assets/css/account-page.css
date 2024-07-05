@@ -21,6 +21,22 @@
   --warning-100: #FEF9C3;
   --warning-200: #FEF08A;
   --warning-300: #FDE047;
+  --warning-600: #FF9F29;
+  --info-50: #EFF6FF;
+  --info-100: #DBEAFE;
+  --info-200: #BFDBFE;
+  --info-300: #93C5FD;
+  --info-600: #2563EB;
+  --success-50: #F0FDF4;
+  --success-100: #DCFCE7;
+  --success-200: #BBF7D0;
+  --success-300: #86EFAC;
+  --success-600: #16A34A;
+  --danger-50: #FEF2F2;
+  --danger-100: #FEE2E2;
+  --danger-200: #FECACA;
+  --danger-300: #FCA5A5;
+  --danger-600: #DC2626;
 }
 
 /* Global account page style */
@@ -302,4 +318,17 @@ ul, ol {
 }
 .bg-on-hold{
    background-color: var(--warning-50);
+   color:var(--warning-600)
+}
+.bg-processing{
+   background-color: var(--info-50);
+   color: var(--info-600);
+}
+.bg-completed{
+   background-color: var(--success-50);
+   color: var(--success-600);
+}
+.bg-cancelled{
+   background-color: var(--danger-50);
+   color: var(--danger-600);
 }
