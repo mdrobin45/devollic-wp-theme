@@ -51,6 +51,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
                         $order_status = $order->get_status();
                         $order_total = $order->get_total();
                         $order_view_url = $order->get_view_order_url();
+                        $invoice_link = do_shortcode('[wcpdf_document_link order_id="'.$order_id.'"]');
                         ?>
                         <tr>
                            <td>
@@ -94,11 +95,14 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
                                  class="w-32-px h-32-px bg-primary-light text-primary-600 rounded-circle d-inline-flex align-items-center justify-content-center">
                                  <i class="fa-regular fa-eye"></i>
                               </a>
+                              <?php 
+                              if($invoice_link): ?>
                               <a
-                                 href="<?php echo do_shortcode('[wcpdf_document_link order_id="'.$order_id.'"]'); ?>"
+                                 href="<?php echo $invoice_link; ?>"
                                  class="w-32-px h-32-px bg-success-focus text-primary-600 rounded-circle d-inline-flex align-items-center justify-content-center">
                                  <i class="fa-solid fa-file-invoice"></i>
                               </a>
+                              <?php endif; ?>
                               
                            </td>
                         </tr>
