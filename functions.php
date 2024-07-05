@@ -173,12 +173,6 @@ function devollic_scripts() {
       wp_enqueue_script( 'bootstrap-bundle', get_template_directory_uri() . '/assets/js/lib/bootstrap.bundle.min.js', array(), _S_VERSION, true );
    }
 
-   // Enqueue style only login page template
-   if(is_page_template('custom-login.php')){
-      wp_enqueue_style( 'custom-login-template', get_template_directory_uri().'/assets/css/custom-login.css', [], _S_VERSION, 'all' );
-      wp_enqueue_script( 'custom-login-template-js', get_template_directory_uri() . '/assets/js/custom-login-page.js', array(), _S_VERSION, true );
-   }
-
 
 	wp_enqueue_script( 'devollic-image-hover-scroll', get_template_directory_uri() . '/assets/js/hover-image-scroll.js', array('jquery'), _S_VERSION, true );
 	wp_enqueue_script( 'devollic-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );

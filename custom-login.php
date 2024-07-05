@@ -2,7 +2,22 @@
 /*
 Template Name: Custom Login Page
 */
-get_header();
+
+function enqueue_custom_login_styles() {
+
+   // Enqueue style only login page template
+   if(is_page_template('custom-login.php')){
+      wp_enqueue_style( 'custom-login-template', get_template_directory_uri().'/assets/css/custom-login.css', [], _S_VERSION, 'all' );
+      wp_enqueue_script( 'custom-login-template-js', get_template_directory_uri() . '/assets/js/custom-login-page.js', array(), _S_VERSION, true );
+   }
+}
+add_action('wp_enqueue_scripts', 'enqueue_custom_login_styles');
+
+// Remove header and footer
+remove_action('wp_head', '_admin_bar_bump_cb');
+
+
+wp_head();
 ?>
 
 <section class="auth bg-base d-flex flex-wrap">
@@ -123,4 +138,4 @@ get_header();
          </div>
       </section>
 
-      <?php get_footer(); ?>
+      <?php wp_footer(); ?>
