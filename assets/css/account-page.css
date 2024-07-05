@@ -338,3 +338,6 @@ ul, ol {
    background-color: var(--lilac-50);
    color: var(--lilac-600);
 }
+.order-table-action-wrapper p{
+   display: inline-block;
+}

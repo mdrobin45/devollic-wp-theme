@@ -41,8 +41,9 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
                   </thead>
                   <tbody>
                   <?php
-                     foreach ( $customer_orders->orders as $customer_order ) {
-                        $order      = wc_get_order( $customer_order ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+                     
+                     foreach ( $customer_orders->orders as $serial_number => $customer_order ) {
+                        $order      = wc_get_order( $customer_order );
                         $item_count = $order->get_item_count() - $order->get_item_count_refunded();
 
                         $order_id= $order->get_id();
@@ -53,12 +54,10 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
                         ?>
                         <tr>
                            <td>
-                              <label class="form-check-label"> 01 </label>
+                              <label class="form-check-label"><?php echo sprintf('%02d', ++$serial_number); ?></label>
                            </td>
                            <td>
-                              <a href="<?php echo esc_url($order_view_url); ?>" class="text-primary-600"
-                                 >#<?php echo esc_html($order_id) ;?></a
-                              >
+                              <span>#<?php echo esc_html($order_id) ;?></span>
                            </td>
                            <td><time datetime="<?php echo esc_attr( $order->get_date_created()->date( 'c' ) ); ?>"><?php echo esc_html( wc_format_datetime( $order->get_date_created() ) ); ?></time></td>
                            <td>
@@ -76,7 +75,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
                                     echo "<span class='bg-on-hold fw-medium p-1 px-24 rounded-1 text-sm text-success-main'>".esc_html($order_status)."</span>";
                                     break;
                                  case "pending":
-                                    echo "<span class='bg-pending fw-medium p-1 px-24 rounded-1 text-sm text-success-main'>".esc_html($order_status)."</span>";
+                                    echo "<span class='bg-pendings fw-medium p-1 px-24 rounded-1 text-sm text-success-main'>".esc_html($order_status)."</span>";
                                     break;
                                  case "processing":
                                     echo "<span class='bg-processing fw-medium p-1 px-24 rounded-1 text-sm text-success-main'>".esc_html($order_status)."</span>";
@@ -89,17 +88,18 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
                               }
                               ?>
                            </td>
-                           <td>
+                           <td class="order-table-action-wrapper">
                               <a
                                  href="<?php echo esc_url($order_view_url);?>"
                                  class="w-32-px h-32-px bg-primary-light text-primary-600 rounded-circle d-inline-flex align-items-center justify-content-center">
                                  <i class="fa-regular fa-eye"></i>
                               </a>
                               <a
-                                 href="javascript:void(0)"
+                                 href="<?php echo do_shortcode('[wcpdf_document_link order_id="'.$order_id.'"]'); ?>"
                                  class="w-32-px h-32-px bg-success-focus text-primary-600 rounded-circle d-inline-flex align-items-center justify-content-center">
                                  <i class="fa-solid fa-file-invoice"></i>
                               </a>
+                              
                            </td>
                         </tr>
                         <?php
