@@ -67,6 +67,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
                               ?>
                            </td>
                            <td>
+                           <span class='bg-completed fw-medium p-1 px-24 rounded-1 text-sm text-success-main'><?php echo esc_html($order_status); ?></span>
                               <?php
                               switch ( $order_status ) {
                                  case "completed":
