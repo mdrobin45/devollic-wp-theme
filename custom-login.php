@@ -3,20 +3,24 @@
 Template Name: Custom Login Page
 */
 
-function enqueue_custom_login_styles() {
 
-   // Enqueue style only login page template
+// Redirect if user already logged in
+if(is_user_logged_in()){
+   wp_redirect(site_url());
+   exit;
+}
+
+// Enqueue style only login page template
+function enqueue_custom_login_styles() {
    if(is_page_template('custom-login.php')){
       wp_enqueue_style( 'custom-login-template', get_template_directory_uri().'/assets/css/custom-login.css', [], _S_VERSION, 'all' );
       wp_enqueue_script( 'custom-login-template-js', get_template_directory_uri() . '/assets/js/custom-login-page.js', array(), _S_VERSION, true );
-      wp_enqueue_script( 'ajax-login-script', get_template_directory_uri() . '/assets/js/ajax-login-script.js', array(), _S_VERSION, true );
    }
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_login_styles');
 
 // Remove header and footer
 remove_action('wp_head', '_admin_bar_bump_cb');
-
 
 wp_head();
 ?>
