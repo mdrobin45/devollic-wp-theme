@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Custom Login Page
+Template Name: Login Page Template
 */
 
 
@@ -12,7 +12,7 @@ if(is_user_logged_in()){
 
 // Enqueue style only login page template
 function enqueue_custom_login_styles() {
-   if(is_page_template('custom-login.php')){
+   if(is_page_template('template-login.php')){
       wp_enqueue_style( 'custom-login-template', get_template_directory_uri().'/assets/css/custom-login.css', [], _S_VERSION, 'all' );
       wp_enqueue_script( 'custom-login-template-js', get_template_directory_uri() . '/assets/js/custom-login-page.js', array(), _S_VERSION, true );
    }
