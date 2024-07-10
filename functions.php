@@ -224,6 +224,9 @@ if(class_exists('WooCommerce')){
    require get_template_directory().'/inc/woocommerce/woocommerce-functions.php';
 }
 
+/// ==============================
+/// Custom login form handler
+/// ==============================
 
 function ajax_login_init() {
    wp_register_script('ajax-login-script', get_template_directory_uri() . '/assets/js/ajax-login-script.js', array('jquery') );
@@ -239,9 +242,9 @@ function ajax_login_init() {
    add_action('wp_ajax_ajaxlogin', 'ajax_login');
 }
 
-
+if (!is_user_logged_in()) {
    add_action('init', 'ajax_login_init');
-
+}
 
 function ajax_login() {
    // First check the nonce, if it fails the function will break
@@ -249,9 +252,9 @@ function ajax_login() {
 
    // Nonce is checked, get the POST data and sign user on
    $info = array();
-   $info['user_login'] = $_POST['log'];
-   $info['user_password'] = $_POST['pwd'];
-   $info['remember'] = true;
+   $info['user_login'] = sanitize_text_field($_POST['log']);
+   $info['user_password'] = sanitize_text_field($_POST['pwd']);
+   $info['remember'] = isset($_POST['rememberme']) ? sanitize_text_field($_POST['rememberme']) : '';
 
    $user_signon = wp_signon($info, false);
    if (is_wp_error($user_signon)){
