@@ -1,20 +1,20 @@
 <?php
 /*
-Template Name: Login Page Template
+Template Name: Register Page Template
 */
 
 
 // Redirect if user already logged in
-if(is_user_logged_in()){
-   wp_redirect(site_url());
-   exit;
-}
+// if(is_user_logged_in()){
+//    wp_redirect(site_url());
+//    exit;
+// }
 
 // Enqueue style only login page template
 function enqueue_custom_login_styles() {
-   if(is_page_template('template-login.php')){
-      wp_enqueue_style( 'custom-login-template', get_template_directory_uri().'/assets/css/custom-login.css', [], _S_VERSION, 'all' );
-      wp_enqueue_script( 'custom-login-template-js', get_template_directory_uri() . '/assets/js/custom-login-page.js', array(), _S_VERSION, true );
+   if(is_page_template('template-register.php')){
+      wp_enqueue_style( 'custom-register-template', get_template_directory_uri().'/assets/css/custom-login.css', [], _S_VERSION, 'all' );
+      wp_enqueue_script( 'custom-register-template-js', get_template_directory_uri() . '/assets/js/custom-register-form.js', array(), _S_VERSION, true );
    }
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_login_styles');
@@ -30,7 +30,7 @@ wp_head();
       <div
          class="d-flex align-items-center flex-column h-100 justify-content-center">
          <img
-            src="<?php echo site_url()."/wp-content/uploads/2024/07/login-vector.jpg"; ?>"
+            src="<?php echo site_url()."/wp-content/uploads/2024/07/sign-up-vector-scaled.jpg"; ?>"
             alt="" />
       </div>
    </div>
@@ -39,17 +39,28 @@ wp_head();
       <div class="max-w-464-px mx-auto w-100">
          <div>
             <a href="index.html" class="mb-40 max-w-290-px">
-               <img
-                  src="<?php echo site_url()."/wp-content/uploads/2024/06/devollic-logo.png"; ?>"
-                  alt="" />
+            <img
+               src="<?php echo site_url()."/wp-content/uploads/2024/06/devollic-logo.png"; ?>"
+               alt="" />
             </a>
-            <h4 class="mb-12">Sign In to your Account</h4>
+            <h4 class="mb-12">Create an New Account</h4>
             <p class="mb-32 text-secondary-light text-lg">
                Welcome back! please enter your detail
             </p>
          </div>
          <div id="login-error" style="color: red;"></div>
-         <form id="clf_loginform" method="post">
+         <form id="clf_regiform" method="post">
+            <div class="icon-field mb-16">
+               <span class="icon top-50 translate-middle-y">
+               <svg xmlns="http://www.w3.org/2000/svg" width="1.2rem" height="1.2rem" viewBox="0 0 256 256"><path fill="currentColor" d="M230.92 212c-15.23-26.33-38.7-45.21-66.09-54.16a72 72 0 1 0-73.66 0c-27.39 8.94-50.86 27.82-66.09 54.16a8 8 0 1 0 13.85 8c18.84-32.56 52.14-52 89.07-52s70.23 19.44 89.07 52a8 8 0 1 0 13.85-8M72 96a56 56 0 1 1 56 56a56.06 56.06 0 0 1-56-56"/></svg>
+               </span>
+               <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  class="form-control h-56-px bg-neutral-50 radius-12"
+                  placeholder="Username" />
+            </div>
             <div class="icon-field mb-16">
                <span class="icon top-50 translate-middle-y">
                   <svg
@@ -76,10 +87,10 @@ wp_head();
                </span>
                <input
                   type="text"
-                  id="user_login"
-                  name="log"
+                  id="email"
+                  name="email"
                   class="form-control h-56-px bg-neutral-50 radius-12"
-                  placeholder="Username or email" />
+                  placeholder="Your email" />
             </div>
             <div class="position-relative mb-20">
                <div class="icon-field">
@@ -102,47 +113,36 @@ wp_head();
                      placeholder="Password" />
                </div>
                <i
-               style="cursor:pointer"
+                  style="cursor:pointer"
                   data-toggle="#your-password"
                   class="fa-regular fa-eye toggle-password cursor-pointer position-absolute end-0 top-50 translate-middle-y me-16 text-secondary-light"></i>
             </div>
-            <input type="hidden" name="security" value="<?php echo wp_create_nonce('ajax-login-nonce'); ?>">
-            <input type="hidden" value="1" name="testcookie">
             <div>
                <div class="d-flex justify-content-between gap-2">
-                  <div
-                     class="form-check style-check d-flex align-items-center">
-                     <input
-                        class="form-check-input border border-neutral-300"
-                        type="checkbox"
-                        value="forever"
-                        name="rememberme"
-                        id="rememberme" />
-                     <label class="form-check-label" for="rememberme"
-                        >Remember me
+                  <div class="form-check style-check d-flex align-items-start">
+                     <input class="form-check-input border border-neutral-300 mt-4" type="checkbox" value="" id="condition">
+                     <label class="form-check-label text-sm" for="condition">
+                     By creating an account means you agree to the 
+                     <a href="javascript:void(0)" class="text-primary-600 fw-semibold">Terms & Conditions</a> and our 
+                     <a href="javascript:void(0)" class="text-primary-600 fw-semibold">Privacy Policy</a>
                      </label>
                   </div>
-                  <a
-                     href="javascript:void(0)"
-                     class="text-primary-600 fw-medium"
-                     >Forgot Password?</a
-                  >
                </div>
             </div>
-
+            <input type="hidden" name="security" value="<?php echo wp_create_nonce('ajax-login-nonce'); ?>">
             <button
                type="submit"
                class="btn btn-primary text-sm btn-sm px-12 py-16 w-100 mt-32">
-               Sign In
+            Sign Up
             </button>
             <div class="mt-32 text-center text-sm">
                <p class="mb-0">
-                  Don’t have an account?
+                  Already have an account?
                   <a
-                     href="<?php echo site_url('/register')?>"
+                     href="<?php echo site_url('/login')?>"
                      class="text-primary-600 fw-semibold"
-                     >Sign Up</a
-                  >
+                     >Sign In</a
+                     >
                </p>
             </div>
          </form>
