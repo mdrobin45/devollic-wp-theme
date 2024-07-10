@@ -9,6 +9,7 @@ jQuery(document).ready(function ($) {
          rememberme: $("#rememberme").is(":checked") ? "forever" : "",
          redirect_to: $("#redirect_to").val(),
          security: $('input[name="security"]').val(),
+         testcookie: "1",
       };
 
       $.ajax({

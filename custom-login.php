@@ -103,6 +103,7 @@ wp_head();
                   class="fa-regular fa-eye toggle-password cursor-pointer position-absolute end-0 top-50 translate-middle-y me-16 text-secondary-light"></i>
             </div>
             <input type="hidden" name="security" value="<?php echo wp_create_nonce('ajax-login-nonce'); ?>">
+            <input type="hidden" value="1" name="testcookie">
             <div>
                <div class="d-flex justify-content-between gap-2">
                   <div
