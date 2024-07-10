@@ -225,9 +225,8 @@ if(class_exists('WooCommerce')){
 }
 
 /// ==============================
-/// Custom login form handler
+/// Custom ajax login form handler
 /// ==============================
-
 function ajax_login_init() {
    wp_register_script('ajax-login-script', get_template_directory_uri() . '/assets/js/custom-login-page.js', array('jquery') );
    wp_enqueue_script('ajax-login-script');
@@ -264,4 +263,13 @@ function ajax_login() {
    }
 
    die();
+}
+
+/// ==============================
+/// Redirect custom login page after log out instead of default login page
+/// ==============================
+add_action('wp_logout','custom_logout_redirect');
+function custom_logout_redirect(){
+   wp_redirect(home_url('/login'));
+   exit;
 }
