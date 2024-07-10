@@ -167,6 +167,13 @@ function devollic_scripts() {
       wp_enqueue_script( 'product-details-script', get_template_directory_uri() . '/assets/js/product-details.js', array(), _S_VERSION, true );
    }
 
+   // Enqueue if user logged in and is this the account  page
+   if(is_user_logged_in() && is_account_page()){
+      wp_enqueue_style( 'account-page-style', get_template_directory_uri().'/assets/css/account-page.css', [], _S_VERSION, 'all' );
+      wp_enqueue_script( 'bootstrap-bundle', get_template_directory_uri() . '/assets/js/lib/bootstrap.bundle.min.js', array(), _S_VERSION, true );
+   }
+
+
 	wp_enqueue_script( 'devollic-image-hover-scroll', get_template_directory_uri() . '/assets/js/hover-image-scroll.js', array('jquery'), _S_VERSION, true );
 	wp_enqueue_script( 'devollic-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'fontawesome-kit', 'https://kit.fontawesome.com/62db3e136e.js', array(), _S_VERSION, true );
@@ -217,4 +224,52 @@ if(class_exists('WooCommerce')){
    require get_template_directory().'/inc/woocommerce/woocommerce-functions.php';
 }
 
-// Test
+/// ==============================
+/// Custom ajax login form handler
+/// ==============================
+function ajax_login_init() {
+   wp_register_script('ajax-login-script', get_template_directory_uri() . '/assets/js/custom-login-page.js', array('jquery') );
+   wp_enqueue_script('ajax-login-script');
+
+   wp_localize_script('ajax-login-script', 'ajax_login_object', array(
+       'ajaxurl' => admin_url('admin-ajax.php'),
+       'redirecturl' => home_url(),
+       'loadingmessage' => __('Sending user info, please wait...')
+   ));
+
+   add_action('wp_ajax_nopriv_ajaxlogin', 'ajax_login'); // If called from admin panel
+   add_action('wp_ajax_ajaxlogin', 'ajax_login');
+}
+
+if (!is_user_logged_in()) {
+   add_action('init', 'ajax_login_init');
+}
+
+function ajax_login() {
+   // First check the nonce, if it fails the function will break
+   check_ajax_referer('ajax-login-nonce', 'security');
+
+   // Nonce is checked, get the POST data and sign user on
+   $info = array();
+   $info['user_login'] = sanitize_text_field($_POST['log']);
+   $info['user_password'] = sanitize_text_field($_POST['pwd']);
+   $info['remember'] = isset($_POST['rememberme']) ? sanitize_text_field($_POST['rememberme']) : '';
+
+   $user_signon = wp_signon($info, false);
+   if (is_wp_error($user_signon)){
+       echo json_encode(array('loggedin'=>false, 'message'=>__('Wrong username or password.')));
+   } else {
+       echo json_encode(array('loggedin'=>true, 'message'=>__('Login successful, redirecting...')));
+   }
+
+   die();
+}
+
+/// ==============================
+/// Redirect custom login page after log out instead of default login page
+/// ==============================
+add_action('wp_logout','custom_logout_redirect');
+function custom_logout_redirect(){
+   wp_redirect(home_url('/login'));
+   exit;
+}
