@@ -86,7 +86,7 @@ wp_head();
                   </svg>
                </span>
                <input
-                  type="text"
+                  type="email"
                   id="email"
                   name="email"
                   class="form-control h-56-px bg-neutral-50 radius-12"

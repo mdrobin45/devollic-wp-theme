@@ -231,14 +231,30 @@ function ajax_login_init() {
    wp_register_script('ajax-login-script', get_template_directory_uri() . '/assets/js/custom-login-page.js', array('jquery') );
    wp_enqueue_script('ajax-login-script');
 
+   // Localize ajax login
    wp_localize_script('ajax-login-script', 'ajax_login_object', array(
        'ajaxurl' => admin_url('admin-ajax.php'),
        'redirecturl' => home_url(),
        'loadingmessage' => __('Sending user info, please wait...')
    ));
 
-   add_action('wp_ajax_nopriv_ajaxlogin', 'ajax_login'); // If called from admin panel
+   wp_register_script('ajax-register-script', get_template_directory_uri() . '/assets/js/custom-register-form.js', array('jquery') );
+   wp_enqueue_script('ajax-register-script');
+
+   // Localize ajax register
+   wp_localize_script('ajax-register-script', 'ajax_register_object', array(
+       'ajaxurl' => admin_url('admin-ajax.php'),
+       'redirecturl' => home_url(),
+       'loadingmessage' => __('Sending user info, please wait...')
+   ));
+
+   // Login action
+   add_action('wp_ajax_nopriv_ajaxlogin', 'ajax_login'); 
    add_action('wp_ajax_ajaxlogin', 'ajax_login');
+
+   // Register action
+   add_action('wp_ajax_nopriv_ajaxregister', 'ajax_register'); 
+   add_action('wp_ajax_ajaxregister', 'ajax_register');
 }
 
 if (!is_user_logged_in()) {
@@ -262,6 +278,44 @@ function ajax_login() {
        echo json_encode(array('loggedin'=>true, 'message'=>__('Login successful, redirecting...')));
    }
 
+   die();
+}
+
+// register function
+function ajax_register() {
+   $username = sanitize_user($_POST['username']);
+   $email = sanitize_email($_POST['email']);
+   $password = $_POST['password'];
+
+   if (username_exists($username)) {
+        wp_send_json(array(
+            'status' => 'error',
+            'message' => 'Username already exists.'
+        ));
+    } elseif (email_exists($email)) {
+        wp_send_json(array(
+            'status' => 'error',
+            'message' => 'Email already exists.'
+        ));
+    } 
+
+   $user_id = wp_create_user($username,$password, $email );
+
+   if (is_wp_error($user_id)){
+       echo wp_send_json(array('status'=>'error', 'message'=>__('Something went wrong!')));
+   } else {
+      $creds = array();
+      $creds['user_login'] = sanitize_text_field($_POST['username']);
+      $creds['user_password'] = sanitize_text_field($_POST['password']);
+      $creds['remember'] = true;
+
+      $loggedInRes = wp_signon($creds,false);
+      if(is_wp_error($loggedInRes)){
+         echo wp_send_json(array('status'=>'error','message'=>__('Login failed'),'error'=>$loggedInRes));
+      }
+
+      echo json_encode(array('status'=>'success', 'message'=>__('Registration successful, redirecting...')));
+   }
    die();
 }
 
