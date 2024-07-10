@@ -1,5 +1,4 @@
 // ================== Password Show Hide Js Start ==========
-const $ = jQuery;
 function initializePasswordToggle(toggleSelector) {
    $(toggleSelector).on("click", function () {
       $(this).toggleClass("fa-eye-slash");
