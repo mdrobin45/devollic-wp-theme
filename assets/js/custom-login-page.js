@@ -1,12 +1,10 @@
 // ================== Password Show Hide Js Start ==========
-const $ = jQuery;
 function initializePasswordToggle(toggleSelector) {
    $(toggleSelector).on("click", function () {
-      console.log("hello");
       $(this).toggleClass("fa-eye-slash");
       $(this).toggleClass("fa-eye");
 
-      var input = $($(this).attr("data-toggle"));
+      const input = $("#user_pass");
       if (input.attr("type") === "password") {
          input.attr("type", "text");
       } else {
