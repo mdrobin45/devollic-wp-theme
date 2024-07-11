@@ -45,7 +45,7 @@ wp_head();
             </a>
             <h4 class="mb-12">Sign In to your Account</h4>
             <p class="mb-32 text-secondary-light text-lg">
-               Welcome back! please enter your detail
+               Welcome back! please enter your detail to login
             </p>
          </div>
          <div id="login-error" style="color: red;"></div>
