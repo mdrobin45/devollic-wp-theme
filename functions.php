@@ -299,23 +299,17 @@ function ajax_register() {
         ));
     } 
 
-   $user_id = wp_create_user($username,$password, $email );
+   $user_id = wp_create_user($username, $password, $email);
 
    if (is_wp_error($user_id)){
-       echo wp_send_json(array('status'=>'error', 'message'=>__('Something went wrong!')));
-   } else {
-      $creds = array();
-      $creds['user_login'] = sanitize_text_field($_POST['username']);
-      $creds['user_password'] = sanitize_text_field($_POST['password']);
-      $creds['remember'] = true;
-
-      $loggedInRes = wp_signon($creds,false);
-      if(is_wp_error($loggedInRes)){
-         echo wp_send_json(array('status'=>'error','message'=>__('Login failed'),'error'=>$loggedInRes));
-      }
-
-      echo json_encode(array('status'=>'success', 'message'=>__('Registration successful, redirecting...')));
+       echo wp_send_json(array('status'=>'error', 'message'=>__('Registration failed!!')));
    }
+
+   // Auto login
+   wp_set_current_user($user_id);
+   wp_set_auth_cookie($user_id);
+
+   echo wp_send_json(array('status'=>'success', 'message'=>__('Registration Successful!!')));
    die();
 }
 
