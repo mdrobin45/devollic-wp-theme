@@ -20,7 +20,7 @@ jQuery(document).ready(function ($) {
    $("#clf_loginform").on("submit", function (e) {
       e.preventDefault();
 
-      var formData = {
+      const formData = {
          action: "ajaxlogin", // Action name for the AJAX handler
          log: $("#user_login").val(),
          pwd: $("#user_pass").val(),

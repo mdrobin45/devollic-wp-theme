@@ -20,7 +20,7 @@ jQuery(document).ready(function ($) {
    $("#clf_regiform").on("submit", function (e) {
       e.preventDefault();
 
-      var formData = {
+      const formData = {
          action: "ajaxregister",
          username: $("#username").val(),
          email: $("#email").val(),
