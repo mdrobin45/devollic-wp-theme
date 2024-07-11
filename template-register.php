@@ -5,10 +5,10 @@ Template Name: Register Page Template
 
 
 // Redirect if user already logged in
-// if(is_user_logged_in()){
-//    wp_redirect(site_url());
-//    exit;
-// }
+if(is_user_logged_in()){
+   wp_redirect(site_url());
+   exit;
+}
 
 // Enqueue style only login page template
 function enqueue_custom_login_styles() {
@@ -107,7 +107,7 @@ wp_head();
                   </span>
                   <input
                      type="password"
-                     name="pwd"
+                     name="password"
                      id="user_pass"
                      class="form-control h-56-px bg-neutral-50 radius-12"
                      placeholder="Password" />

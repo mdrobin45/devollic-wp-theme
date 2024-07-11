@@ -285,7 +285,7 @@ function ajax_login() {
 function ajax_register() {
    $username = sanitize_user($_POST['username']);
    $email = sanitize_email($_POST['email']);
-   $password = $_POST['password'];
+   $password = sanitize_text_field($_POST['password']);
 
    if (username_exists($username)) {
         wp_send_json(array(

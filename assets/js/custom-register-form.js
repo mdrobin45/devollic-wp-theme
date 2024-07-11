@@ -24,7 +24,7 @@ jQuery(document).ready(function ($) {
          action: "ajaxregister",
          username: $("#username").val(),
          email: $("#email").val(),
-         password: $("#password").val(),
+         password: $("#user_pass").val(),
          condition: $("#condition").is(":checked") ? true : false,
          security: $('input[name="security"]').val(),
       };
