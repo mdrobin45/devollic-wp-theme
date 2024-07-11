@@ -321,3 +321,4 @@ function custom_logout_redirect(){
    wp_redirect(home_url('/login'));
    exit;
 }
+// Change
