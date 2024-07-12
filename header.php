@@ -20,10 +20,17 @@
 </head>
 <header>
    <nav>
-      <div class="logo"><a href="#"> King</a></div>
-      <label for="menubrop" class="bartoggle">≡</label>
-      <input type="checkbox" id="menubrop" />
-      <ul class="NavMenu m-0 m-0">
+      <div class="logo"><a href="<?php echo site_url(); ?>"><img src="<?php echo site_url('/wp-content/uploads/2024/06/devollic-logo.png'); ?>" alt="Logo"></a></div>
+      
+      <?php
+      wp_nav_menu( array(
+         'theme_location' =>'primary_menu',
+         'container' =>'ul',
+         'menu_class' => 'NavMenu m-0 p-0',
+         'walker' => new Custom_Walker_Nav_Menu(),
+      ) )
+      ?>
+      <!-- <ul class="NavMenu m-0 m-0">
          <li><a href="#">Home</a></li>
          <li><a href="#">About Us</a></li>
          <li>
@@ -33,32 +40,16 @@
                ></a
             >
             <input type="checkbox" id="droplist1" />
-            <!-- =============FirstDropDown================== -->
-            <ul class="p-0">
+            <ul class="p-0 m-0">
                <li><a href="#">Service A</a></li>
                <li><a href="#">Service B</a></li>
-               <li>
-                  <a href="javascript:void(0)"
-                     ><label for="droplist2" class="toggle"
-                        >Service C</label
-                     ></a
-                  >
-                  <input type="checkbox" id="droplist2" />
-                  <!-- =========Sub Drop Menu========== -->
-                  <ul class="p-0 m-0">
-                     <li><a href="#">Sub Service 1</a></li>
-                     <li><a href="#">Sub Service 2</a></li>
-                     <li><a href="#">Sub Service 3</a></li>
-                     <li><a href="#">Sub Service 4</a></li>
-                  </ul>
-               </li>
                <li><a href="#">Service D</a></li>
             </ul>
          </li>
          <li><a href="#">Our Gallery</a></li>
          <li><a href="#">Contact Us</a></li>
          <li><a href="#">Enquiry</a></li>
-      </ul>
+      </ul> -->
       <div class="d-flex align-items-center">
          <!-- Cart items -->
          <div class="dropdown">
@@ -164,39 +155,22 @@
                      <a
                         class="dropdown-item text-black px-0 py-8 hover-bg-transparent hover-text-primary d-flex align-items-center gap-3"
                         href="view-profile.html">
-                        <iconify-icon
-                           icon="solar:user-linear"
-                           class="icon text-xl"></iconify-icon>
-                        My Profile</a
-                     >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><path fill="black" d="M9 1v6H5l7 7l7-7h-4V1zM5 16v2h14v-2zm0 4v2h14v-2z"/></svg>
+                        Downloads</a>
                   </li>
                   <li>
                      <a
                         class="dropdown-item text-black px-0 py-8 hover-bg-transparent hover-text-primary d-flex align-items-center gap-3"
                         href="email.html">
-                        <iconify-icon
-                           icon="tabler:message-check"
-                           class="icon text-xl"></iconify-icon>
-                        Inbox</a
-                     >
-                  </li>
-                  <li>
-                     <a
-                        class="dropdown-item text-black px-0 py-8 hover-bg-transparent hover-text-primary d-flex align-items-center gap-3"
-                        href="company.html">
-                        <iconify-icon
-                           icon="icon-park-outline:setting-two"
-                           class="icon text-xl"></iconify-icon>
-                        Setting</a
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><path fill="black" d="m23.5 17l-5 5l-3.5-3.5l1.5-1.5l2 2l3.5-3.5zM6 2a2 2 0 0 0-2 2v16c0 1.11.89 2 2 2h7.81c-.36-.62-.61-1.3-.73-2H6V4h7v5h5v4.08c.33-.05.67-.08 1-.08c.34 0 .67.03 1 .08V8l-6-6M8 12v2h8v-2m-8 4v2h5v-2Z"/></svg>
+                        Invoice</a
                      >
                   </li>
                   <li>
                      <a
                         class="dropdown-item text-black px-0 py-8 hover-bg-transparent hover-text-danger d-flex align-items-center gap-3"
                         href="javascript:void(0)">
-                        <iconify-icon
-                           icon="lucide:power"
-                           class="icon text-xl"></iconify-icon>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><path fill="black" d="M4 12a.5.5 0 0 0 .5.5h8.793l-2.647 2.646a.5.5 0 1 0 .707.708l3.5-3.5a.5.5 0 0 0 0-.707l-3.5-3.5a.5.5 0 0 0-.707.707l2.647 2.646H4.5a.5.5 0 0 0-.5.5M17.5 2h-11A2.502 2.502 0 0 0 4 4.5v4a.5.5 0 0 0 1 0v-4A1.5 1.5 0 0 1 6.5 3h11A1.5 1.5 0 0 1 19 4.5v15a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 19.5v-4a.5.5 0 0 0-1 0v4A2.502 2.502 0 0 0 6.5 22h11a2.502 2.502 0 0 0 2.5-2.5v-15A2.502 2.502 0 0 0 17.5 2"/></svg>
                         Log Out</a
                      >
                   </li>
