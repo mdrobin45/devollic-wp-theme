@@ -65,6 +65,12 @@ header {
  #menubrop {
    display: none;
  }
+ button.header-user-dropdown-close-btn {
+   background: none;
+   border: none;
+   padding: 0;
+   margin: 0;
+}
  
  header .NavMenu {
    flex: 10;
@@ -109,7 +115,7 @@ header {
    align-items: center;
    border:none;
 }
-header .devollic_nav_cart-icon:hover, header .devollic_nav_cart-icon:focus{
+header .devollic_nav_cart-icon:hover, header .devollic_nav_cart-icon:focus, button.header-user-dropdown-close-btn:hover, button.header-user-dropdown-close-btn:focus{
    background-color: inherit;
 }
 header .header-user-dropdown-btn {
@@ -153,7 +159,7 @@ header .header-user-dropdown-btn:hover, header .header-user-dropdown-btn:focus{
  
  .NavMenu li ul {
    position: absolute;
-   display: flex;
+   display: none;
    z-index: 99;
    flex-direction: column;
    background-color: #FEF4F0;
@@ -171,7 +177,7 @@ header .header-user-dropdown-btn:hover, header .header-user-dropdown-btn:focus{
    -moz-transform: translateY(10px);
    -ms-transform: translateY(10px);
    -o-transform: translateY(10px);
-   visibility: hidden;
+   /* visibility: hidden; */
    opacity: 0;
  }
  
@@ -216,7 +222,8 @@ header .header-user-dropdown-btn:hover, header .header-user-dropdown-btn:focus{
  
    .NavMenu li:hover>ul,
    .NavMenu li ul li:hover>ul {
-     visibility: visible;
+     /* visibility: visible; */
+     display: flex;
      opacity: 1;
      transform: translateY(0);
      -webkit-transform: translateY(0);
