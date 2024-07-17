@@ -29,7 +29,7 @@ wp_head();
    <div class="auth-left d-lg-block d-none">
       <div
          class="d-flex align-items-center flex-column h-100 justify-content-center">
-         <img
+         <img class="w-75"
             src="<?php echo site_url()."/wp-content/uploads/2024/07/sign-up-vector-scaled.jpg"; ?>"
             alt="" />
       </div>
