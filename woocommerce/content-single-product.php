@@ -61,6 +61,14 @@ if ( post_password_required() ) {
                         >Reviews <?php echo $product->get_review_count(); ?></a
                      >
                   </li>
+                  <li class="nav-item">
+                     <a
+                        class="nav-link"
+                        data-toggle="pill"
+                        href="#pills-screenshot"
+                        >Screenshots</a
+                     >
+                  </li>
                </ul>
                <div class="tab-content">
                   <div class="tab-pane fade show active" id="pills-home">
@@ -124,6 +132,9 @@ if ( post_password_required() ) {
                            <a class="btn btn-base" href="#">Submit</a>
                         </form>
                      </div>
+                  </div>
+                  <div class="tab-pane fade show active" id="pills-screenshot">
+                     <h2>Screenshots</h2>
                   </div>
                </div>
             </div>
