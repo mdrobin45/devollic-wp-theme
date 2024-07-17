@@ -41,7 +41,7 @@ if ( woocommerce_product_loop() ) {
       <div class="container">
          <div class="row">
             <div class="col-12 col-md-3">
-               <h2>Sidebar</h2>
+               <!-- <h2>Sidebar</h2> -->
             </div>
             <div class="col-12 col-md-9">
                
