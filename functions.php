@@ -49,7 +49,7 @@ function devollic_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'devollic' ),
+			'primary_menu' => esc_html__( 'Primary', 'devollic' ),
 		)
 	);
 
@@ -104,6 +104,7 @@ function devollic_setup() {
    add_theme_support( 'woocommerce' );
 
    add_image_size( 'product-details-thumb', 710, 331,true );
+   add_image_size( 'cart-dropdown-thumbnail', 44, 44,true );
 }
 add_action( 'after_setup_theme', 'devollic_setup' );
 
@@ -158,6 +159,7 @@ function devollic_scripts() {
 	wp_style_add_data( 'devollic-style', 'rtl', 'replace' );
    wp_enqueue_style( 'bootstrap-css', get_template_directory_uri().'/assets/css/bootstrap.min.css', [], '5.3.3', 'all' );
    wp_enqueue_style( 'product-archive-css', get_template_directory_uri().'/assets/css/product-archive.css', [], '1.0.0', 'all' );
+   wp_enqueue_style( 'navbar_style', get_template_directory_uri().'/assets/css/navbar.css', [], '1.0.0', 'all' );
    wp_enqueue_style( 'custom_css', get_template_directory_uri().'/assets/css/custom.css', [], '1.0.0', 'all' );
    wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap', false );
 
@@ -170,10 +172,10 @@ function devollic_scripts() {
    // Enqueue if user logged in and is this the account  page
    if(is_user_logged_in() && is_account_page()){
       wp_enqueue_style( 'account-page-style', get_template_directory_uri().'/assets/css/account-page.css', [], _S_VERSION, 'all' );
-      wp_enqueue_script( 'bootstrap-bundle', get_template_directory_uri() . '/assets/js/lib/bootstrap.bundle.min.js', array(), _S_VERSION, true );
    }
 
 
+   wp_enqueue_script( 'bootstrap-bundle', get_template_directory_uri() . '/assets/js/lib/bootstrap.bundle.min.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'devollic-image-hover-scroll', get_template_directory_uri() . '/assets/js/hover-image-scroll.js', array('jquery'), _S_VERSION, true );
 	wp_enqueue_script( 'devollic-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'fontawesome-kit', 'https://kit.fontawesome.com/62db3e136e.js', array(), _S_VERSION, true );
@@ -231,14 +233,30 @@ function ajax_login_init() {
    wp_register_script('ajax-login-script', get_template_directory_uri() . '/assets/js/custom-login-page.js', array('jquery') );
    wp_enqueue_script('ajax-login-script');
 
+   // Localize ajax login
    wp_localize_script('ajax-login-script', 'ajax_login_object', array(
        'ajaxurl' => admin_url('admin-ajax.php'),
        'redirecturl' => home_url(),
        'loadingmessage' => __('Sending user info, please wait...')
    ));
 
-   add_action('wp_ajax_nopriv_ajaxlogin', 'ajax_login'); // If called from admin panel
+   wp_register_script('ajax-register-script', get_template_directory_uri() . '/assets/js/custom-register-form.js', array('jquery') );
+   wp_enqueue_script('ajax-register-script');
+
+   // Localize ajax register
+   wp_localize_script('ajax-register-script', 'ajax_register_object', array(
+       'ajaxurl' => admin_url('admin-ajax.php'),
+       'redirecturl' => home_url(),
+       'loadingmessage' => __('Sending user info, please wait...')
+   ));
+
+   // Login action
+   add_action('wp_ajax_nopriv_ajaxlogin', 'ajax_login'); 
    add_action('wp_ajax_ajaxlogin', 'ajax_login');
+
+   // Register action
+   add_action('wp_ajax_nopriv_ajaxregister', 'ajax_register'); 
+   add_action('wp_ajax_ajaxregister', 'ajax_register');
 }
 
 if (!is_user_logged_in()) {
@@ -265,6 +283,38 @@ function ajax_login() {
    die();
 }
 
+// register function
+function ajax_register() {
+   $username = sanitize_user($_POST['username']);
+   $email = sanitize_email($_POST['email']);
+   $password = sanitize_text_field($_POST['password']);
+
+   if (username_exists($username)) {
+        wp_send_json(array(
+            'status' => 'error',
+            'message' => 'Username already exists.'
+        ));
+    } elseif (email_exists($email)) {
+        wp_send_json(array(
+            'status' => 'error',
+            'message' => 'Email already exists.'
+        ));
+    } 
+
+   $user_id = wp_create_user($username, $password, $email);
+
+   if (is_wp_error($user_id)){
+       echo wp_send_json(array('status'=>'error', 'message'=>__('Registration failed!!')));
+   }
+
+   // Auto login
+   wp_set_current_user($user_id);
+   wp_set_auth_cookie($user_id);
+
+   echo wp_send_json(array('status'=>'success', 'message'=>__('Registration Successful!!')));
+   die();
+}
+
 /// ==============================
 /// Redirect custom login page after log out instead of default login page
 /// ==============================
@@ -272,4 +322,59 @@ add_action('wp_logout','custom_logout_redirect');
 function custom_logout_redirect(){
    wp_redirect(home_url('/login'));
    exit;
+}
+
+
+/// ==============================
+/// Nav menu walker
+/// ==============================
+class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
+   // Start level
+   function start_lvl( &$output, $depth = 0, $args = array() ) {
+       $indent = str_repeat("\t", $depth);
+       $output .= "\n$indent<ul class=\"sub-menu\">\n";
+   }
+
+   // Start element
+   function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+       $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+
+       $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+       $classes[] = 'menu-item-' . $item->ID;
+
+       $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+       $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+
+       $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
+       $id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
+
+       $output .= $indent . '<li' . $id . $class_names .'>';
+
+       $atts = array();
+       $atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
+       $atts['target'] = ! empty( $item->target )     ? $item->target     : '';
+       $atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
+       $atts['href']   = ! empty( $item->url )        ? $item->url        : '';
+
+       $atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
+
+       $attributes = '';
+       foreach ( $atts as $attr => $value ) {
+           if ( ! empty( $value ) ) {
+               $value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+               $attributes .= ' ' . $attr . '="' . $value . '"';
+           }
+       }
+
+       // Add the submenu icon if the item has children
+       $submenu_icon = in_array('menu-item-has-children', $classes) ? '<svg xmlns="http://www.w3.org/2000/svg" width="1.7rem" height="1.7rem" viewBox="0 0 24 24"><path fill="black" d="M12 15.121a.997.997 0 0 1-.707-.293L7.05 10.586a1 1 0 0 1 1.414-1.414L12 12.707l3.536-3.535a1 1 0 0 1 1.414 1.414l-4.243 4.242a.997.997 0 0 1-.707.293"/></svg>' : '';
+
+       $item_output = $args->before;
+       $item_output .= '<a'. $attributes .'>';
+       $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+       $item_output .= $submenu_icon . '</a>';
+       $item_output .= $args->after;
+
+       $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+   }
 }

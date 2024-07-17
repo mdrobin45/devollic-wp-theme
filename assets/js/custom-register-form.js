@@ -17,31 +17,44 @@ initializePasswordToggle(".toggle-password");
 // ========================= Password Show Hide Js End ===========================
 
 jQuery(document).ready(function ($) {
-   $("#clf_loginform").on("submit", function (e) {
+   $("#clf_regiform").on("submit", function (e) {
       e.preventDefault();
 
       const formData = {
-         action: "ajaxlogin", // Action name for the AJAX handler
-         log: $("#user_login").val(),
-         pwd: $("#user_pass").val(),
-         rememberme: $("#rememberme").is(":checked") ? "forever" : "",
+         action: "ajaxregister",
+         username: $("#username").val(),
+         email: $("#email").val(),
+         password: $("#user_pass").val(),
+         condition: $("#condition").is(":checked") ? true : false,
          security: $('input[name="security"]').val(),
-         testcookie: "1",
       };
+
+      if (!formData.email || !formData.username) {
+         $("#login-error").text("Please fill all field");
+         return;
+      }
+
+      // Return if condition not checked
+      if (!formData.condition) {
+         $("#login-error").text("Please agree our terms and condition");
+         return;
+      }
 
       $.ajax({
          type: "POST",
          dataType: "json",
-         url: ajax_login_object.ajaxurl,
+         url: ajax_register_object.ajaxurl,
          data: formData,
          success: function (response) {
-            if (response.loggedin === true) {
-               window.location.href = ajax_login_object.redirecturl; // Redirect on success
+            console.log(response);
+            if (response.status === "success") {
+               window.location.href = ajax_register_object.redirecturl;
             } else {
-               $("#login-error").text(response.message); // Show error message
+               $("#login-error").text(response.message);
             }
          },
-         error: function () {
+         error: function (res) {
+            console.log(res);
             $("#login-error").text(
                "An unexpected error occurred. Please try again."
             );
