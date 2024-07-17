@@ -236,6 +236,9 @@ ul#menu-1-91c857c li a {
     border-color: #652FF2;
     font-weight: 400;
 }
+.woocommerce-order .woocommerce-customer-details address{
+   border: none !important;
+}
 /* Apply "Public Sans" to headings */
 h1, h2, h3, h4, h5, h6,
 .woocommerce ul.products li.product .woocommerce-loop-product__title,
