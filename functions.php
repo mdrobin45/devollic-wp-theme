@@ -104,6 +104,7 @@ function devollic_setup() {
    add_theme_support( 'woocommerce' );
 
    add_image_size( 'product-details-thumb', 710, 331,true );
+   add_image_size( 'cart-dropdown-thumbnail', 44, 44,true );
 }
 add_action( 'after_setup_theme', 'devollic_setup' );
 

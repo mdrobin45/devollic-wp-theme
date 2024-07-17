@@ -62,44 +62,86 @@
                      >
                   </div>
 
-                  <div class="max-h-400-px overflow-y-auto scroll-sm pe-4">
-                     <a
-                        href="javascript:void(0)"
-                        class="px-24 py-12 d-flex align-items-center gap-3 mb-2 justify-content-between bg-neutral-50">
-                        <div
-                           class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
-                           <span
-                              class="w-44-px h-44-px bg-success-subtle text-success-main rounded-circle d-flex justify-content-center align-items-center flex-shrink-0">
-                              <img
-                                 src="assets/images/notification/profile-1.png"
-                                 alt="" />
-                           </span>
-                           <div>
-                              <h6 class="text-md fw-semibold">
-                                 Ronald Richards
-                              </h6>
-                              <p
-                                 class="mb-0 text-sm text-secondary-light text-w-200-px">
-                                 <strong class="fw-semibold text-black"
-                                    >Category:</strong
-                                 >
-                                 Wordpress
-                              </p>
-                           </div>
-                        </div>
-                        <p
-                           class="m-0 text-lg fw-semibold text-black text-secondary-light flex-shrink-0">
-                           $20
-                        </p>
-                     </a>
-                  </div>
-                  <div class="text-center cart-dropdown-footer">
-                     <a
-                        href="javascript:void(0)"
-                        class="text-white fw-semibold text-md py-12 px-16 d-block"
-                        >Proceed to Checkout</a
-                     >
-                  </div>
+                  <!-- Cart items loop -->
+                   <?php
+                   if(WC()->cart->is_empty()): ?>
+                     <h4 class="m-16 px-16 text-center text-secondary">No Items</h4>
+                     <?php else: ?>
+                        <?php 
+                           foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ){
+                              $_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+                              $product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
+                              /**
+                               * Filter the product name.
+                              *
+                              * @since 2.1.0
+                              * @param string $product_name Name of the product in the cart.
+                              * @param array $cart_item The product in the cart.
+                              * @param string $cart_item_key Key for the product in the cart.
+                              */
+                              $product_name = apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key );
+         
+                              if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
+                                 $product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
+                              ?>
+                                  <div class="max-h-400-px overflow-y-auto scroll-sm pe-4">
+                                    <a
+                                       href="<?php echo $product_permalink; ?>"
+                                       class="px-24 py-12 d-flex align-items-center gap-3 mb-2 justify-content-between bg-neutral-50">
+                                       <div
+                                          class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
+                                          <span
+                                             class="w-44-px h-44-px bg-success-subtle text-success-main rounded-circle d-flex justify-content-center align-items-center flex-shrink-0">
+                                             <?php
+                                             $thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(array(50,50)), $cart_item, $cart_item_key );
+                                             echo $thumbnail;
+                                             ?>
+                                          </span>
+                                          <div>
+                                             <h6 class="text-md fw-semibold"><?php echo $product_name; ?></h6>
+                                             <p
+                                                class="mb-0 text-sm text-secondary-light text-w-200-px">
+                                                <strong class="fw-semibold text-black"
+                                                   >Category:</strong
+                                                >
+                                                <?php 
+                                                $categories_term = get_the_terms($_product->get_id(), 'product_cat');
+         
+                                                if ($categories_term && !is_wp_error($categories_term)) {
+                                                    $categories = array();
+                                            
+                                                    foreach ($categories_term as $category) {
+                                                        $categories[] = $category->name;
+                                                    }
+                                            
+                                                    echo "<span>" . implode(', ', $categories) . "</span>";
+                                                }
+                                                ?>
+                                             </p>
+                                          </div>
+                                       </div>
+                                       <p
+                                          class="m-0 text-lg fw-semibold text-black text-secondary-light flex-shrink-0">
+                                          <?php echo wc_price($_product->get_regular_price()); ?>
+                                       </p>
+                                    </a>
+                                 </div>
+                              <?php 
+                              }
+                            }
+                        ?>
+                   <?php endif; ?>
+
+                  <?php if ( WC()->cart->is_empty() ) : ?>
+                     <div aria-disabled="true" class="text-center w-100 btn btn-primary disabled cart-dropdown-footer">
+                         <span class="text-white fw-semibold text-md py-12 px-16 d-block">Proceed to Checkout</span>
+                     </div>
+                 <?php else : ?>
+                     <div class="text-center cart-dropdown-footer">
+                         <a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="text-white fw-semibold text-md py-12 px-16 d-block">Proceed to Checkout</a>
+                     </div>
+                 <?php endif; ?>
+                   
                </div>
             </div>
          <?php endif; ?>
