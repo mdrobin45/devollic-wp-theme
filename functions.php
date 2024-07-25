@@ -165,6 +165,7 @@ function devollic_scripts() {
 
    if(is_product()){
       wp_enqueue_style( 'product-details-vendor-css', get_template_directory_uri().'/assets/css/product-details-vendor.css', [], '1.0.0', 'all' );
+      wp_enqueue_style( 'product-tab-screenshots-style', get_template_directory_uri().'/assets/css/product-tab-screenshot.css', [], '1.0.0', 'all' );
       wp_enqueue_style( 'product-details-css', get_template_directory_uri().'/assets/css/product-details.css', [], '1.0.0', 'all' );
       wp_enqueue_script( 'product-details-script', get_template_directory_uri() . '/assets/js/product-details.js', array(), _S_VERSION, true );
    }

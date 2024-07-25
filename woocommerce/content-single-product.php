@@ -133,8 +133,41 @@ if ( post_password_required() ) {
                         </form>
                      </div>
                   </div>
-                  <div class="tab-pane fade show active" id="pills-screenshot">
-                     <h2>Screenshots</h2>
+                  <div class="tab-pane fade show" id="pills-screenshot">
+                     <div class="screenshots-wrapper">
+                        <div class="screenshot-image-wrapper">
+                           <div class="screen">
+                              <img
+                                 class="product-thumbnail-image"
+                                 src="<?php echo site_url('/wp-content/uploads/2024/07/ARTIO-full-scaled.webp')?>"
+                                 alt="Product Name" />
+                           </div>
+                        </div>
+                        <div class="screenshot-image-wrapper">
+                           <div class="screen">
+                              <img
+                                 class="product-thumbnail-image"
+                                 src="<?php echo site_url('/wp-content/uploads/2024/07/ARTIO-full-scaled.webp')?>"
+                                 alt="Product Name" />
+                           </div>
+                        </div>
+                        <div class="screenshot-image-wrapper">
+                           <div class="screen">
+                              <img
+                                 class="product-thumbnail-image"
+                                 src="<?php echo site_url('/wp-content/uploads/2024/07/ARTIO-full-scaled.webp')?>"
+                                 alt="Product Name" />
+                           </div>
+                        </div>
+                        <div class="screenshot-image-wrapper">
+                           <div class="screen">
+                              <img
+                                 class="product-thumbnail-image"
+                                 src="<?php echo site_url('/wp-content/uploads/2024/07/ARTIO-full-scaled.webp')?>"
+                                 alt="Product Name" />
+                           </div>
+                        </div>
+                     </div>
                   </div>
                </div>
             </div>
