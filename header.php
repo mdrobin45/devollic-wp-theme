@@ -179,7 +179,7 @@
                   alt="image"
                   class="w-40-px h-40-px object-fit-cover rounded-circle" />
             </button>
-            <div class="dropdown-menu to-top dropdown-menu-sm">
+            <div class="dropdown-menu to-top dropdown-menu-sm rounded-4">
                <div
                   class="py-12 px-16 radius-8 bg-primary-50 mb-16 d-flex align-items-center justify-content-between gap-2">
                   <div>
