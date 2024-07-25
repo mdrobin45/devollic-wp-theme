@@ -6,7 +6,7 @@ let $ = jQuery;
             screenh = $this.height();
          return parseInt(screenh - imageh);
       };
-
+      console.log("Hello");
       var onHover = function () {
          // Don't scroll the image if image's height is smaller that screen's height
          if (imageScrollGetHeight($(this)) > 0) return;
@@ -61,5 +61,5 @@ let $ = jQuery;
 })(jQuery);
 
 $(window).on("load", function () {
-   $(".image-screen").scrollImage();
+   $(".screen-image").scrollImage();
 });

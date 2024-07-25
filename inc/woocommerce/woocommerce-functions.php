@@ -273,7 +273,7 @@ function devollic_get_logged_in_user_info(){
    <?php endif; ?>
 <?php }
 
-
+// 
 add_action('product_show_screenshots','devollic_product_show_screenshots');
 function devollic_product_show_screenshots(){
    global $product;
@@ -288,11 +288,8 @@ function devollic_product_show_screenshots(){
       // Get image url
       $image_url = wp_get_attachment_url($gallery_image_id);?>
          <div class="screenshot-image-wrapper">
-            <div class="screen">
-               <img
-                  class="product-thumbnail-image"
-                  src="<?php echo $image_url; ?>"
-                  alt="Product Name" />
+            <div class="window">
+               <img src="<?php echo $image_url; ?>" alt="Product Name" />
             </div>
          </div>
   <?php }

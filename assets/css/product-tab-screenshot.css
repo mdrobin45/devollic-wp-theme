@@ -4,30 +4,21 @@
    row-gap: 20px;
    column-gap: 20px;
 }
-.screenshot-image-wrapper{
-   box-shadow: 0px 2px 20px 0px rgba(182, 182, 182, 0.4);
+.window {
+   border: none;
    border-radius: 10px;
-   width: 100%;
-   height: 600px;
-}
-
-/* Scroll image on hover - product */
-.screen {
-	display: block;
-   border-radius: 10px;
-	height: 100%;
-	overflow: hidden;
-	position: relative;
-	margin: 0 auto;
-}
-.screen img {
-	width: 100%;
-	height: auto;
-	position: absolute;
-	z-index: 0;
-   border-radius: 10px;
-   margin:auto;
-   left:0;
-   right:0;
-   padding:0;
-}
+   cursor: n-resize;
+ 
+   img {
+      width: 100%;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 10px;
+      height: 500px;
+      transition: 5s all ease;
+ 
+     &:hover {
+       object-position: bottom;
+     }
+   }
+ }
