@@ -61,14 +61,21 @@ if ( post_password_required() ) {
                         >Reviews <?php echo $product->get_review_count(); ?></a
                      >
                   </li>
-                  <li class="nav-item">
-                     <a
-                        class="nav-link"
-                        data-toggle="pill"
-                        href="#pills-screenshot"
-                        >Screenshots</a
-                     >
-                  </li>
+                  <?php
+                  global $product;
+
+                  $gallery_image_ids = $product -> get_gallery_image_ids();
+                  if( $gallery_image_ids ): ?>
+                     <li class="nav-item">
+                        <a
+                           class="nav-link"
+                           data-toggle="pill"
+                           href="#pills-screenshot"
+                           >Screenshots</a
+                        >
+                     </li>
+                 <?php endif; ?>
+                  
                </ul>
                <div class="tab-content">
                   <div class="tab-pane fade show active" id="pills-home">
@@ -135,38 +142,9 @@ if ( post_password_required() ) {
                   </div>
                   <div class="tab-pane fade show" id="pills-screenshot">
                      <div class="screenshots-wrapper">
-                        <div class="screenshot-image-wrapper">
-                           <div class="screen">
-                              <img
-                                 class="product-thumbnail-image"
-                                 src="<?php echo site_url('/wp-content/uploads/2024/07/ARTIO-full-scaled.webp')?>"
-                                 alt="Product Name" />
-                           </div>
-                        </div>
-                        <div class="screenshot-image-wrapper">
-                           <div class="screen">
-                              <img
-                                 class="product-thumbnail-image"
-                                 src="<?php echo site_url('/wp-content/uploads/2024/07/ARTIO-full-scaled.webp')?>"
-                                 alt="Product Name" />
-                           </div>
-                        </div>
-                        <div class="screenshot-image-wrapper">
-                           <div class="screen">
-                              <img
-                                 class="product-thumbnail-image"
-                                 src="<?php echo site_url('/wp-content/uploads/2024/07/ARTIO-full-scaled.webp')?>"
-                                 alt="Product Name" />
-                           </div>
-                        </div>
-                        <div class="screenshot-image-wrapper">
-                           <div class="screen">
-                              <img
-                                 class="product-thumbnail-image"
-                                 src="<?php echo site_url('/wp-content/uploads/2024/07/ARTIO-full-scaled.webp')?>"
-                                 alt="Product Name" />
-                           </div>
-                        </div>
+                        <?php
+                        do_action('product_show_screenshots');
+                        ?>
                      </div>
                   </div>
                </div>

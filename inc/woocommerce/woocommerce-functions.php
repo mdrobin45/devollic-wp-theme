@@ -273,3 +273,27 @@ function devollic_get_logged_in_user_info(){
    <?php endif; ?>
 <?php }
 
+
+add_action('product_show_screenshots','devollic_product_show_screenshots');
+function devollic_product_show_screenshots(){
+   global $product;
+   $gallery_image_ids = $product -> get_gallery_image_ids();
+   
+   // Check if ids are exits
+   if(!$gallery_image_ids){
+      return;
+   }
+
+   foreach( $gallery_image_ids as $gallery_image_id ){
+      // Get image url
+      $image_url = wp_get_attachment_url($gallery_image_id);?>
+         <div class="screenshot-image-wrapper">
+            <div class="screen">
+               <img
+                  class="product-thumbnail-image"
+                  src="<?php echo $image_url; ?>"
+                  alt="Product Name" />
+            </div>
+         </div>
+  <?php }
+}
