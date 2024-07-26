@@ -38,70 +38,13 @@
                </svg>
             </div>
          </div>
-      <ul>
-         <li><a href="#">Home</a></li>
-         <li class="parent">
-            <a href="#">Products</a>
-            <ul>
-               <li><a href="#">Modeflick</a></li>
-               <li><a href="#">Neoskizzle</a></li>
-               <li><a href="#">Bopster</a></li>
-               <li><a href="#">Locobot</a></li>
-               <li><a href="#">Jovaphile</a></li>
-               <li><a href="#">Peloozoid</a></li>
-            </ul>
-         </li>
-         <li class="parent">
-            <a href="#">Services</a>
-            <ul>
-               <li class="parent">
-                  <a href="#">Web Design</a>
-                  <ul>
-                     <li><a href="#">Responsive</a></li>
-                     <li><a href="#">Templates</a></li>
-                  </ul>
-               </li>
-               <li class="parent">
-                  <a href="#">Web Development</a>
-                  <ul>
-                     <li><a href="#">HTML</a></li>
-                     <li><a href="#">CSS</a></li>
-                     <li><a href="#">jQuery</a></li>
-                     <li><a href="#">Ruby on Rails</a></li>
-                     <li><a href="#">PHP</a></li>
-                  </ul>
-               </li>
-               <li class="parent">
-                  <a href="#">Mobile Applications</a>
-                  <ul>
-                     <li><a href="#">Android Devices</a></li>
-                     <li><a href="#">Apple Devices</a></li>
-                     <li><a href="#">Windows Devices</a></li>
-                  </ul>
-               </li>
-               <li class="parent">
-                  <a href="#">Analytics</a>
-                  <ul>
-                     <li><a href="#">Google Analytics</a></li>
-                     <li><a href="#">Mint</a></li>
-                     <li><a href="#">Omniture</a></li>
-                     <li><a href="#">Piwik</a></li>
-                  </ul>
-               </li>
-            </ul>
-         </li>
-         <li class="parent">
-            <a href="#">About Us</a>
-            <ul>
-               <li><a href="#">Our Company</a></li>
-               <li><a href="#">Meet The Team</a></li>
-               <li><a href="#">Office Life</a></li>
-               <li><a href="#">Fun Facts</a></li>
-               <li><a href="#">Testimonials</a></li>
-            </ul>
-         </li>
-         <li><a href="#">Contact</a></li>
-      </ul>
+         <?php
+      wp_nav_menu( array(
+         'theme_location' =>'mobile_menu',
+         'container' =>'ul',
+         'walker' => new Mobile_Walker_Nav_Menu(),
+      ));
+      ?>
    </div>
    <div class="desktop-nav">
    <nav>

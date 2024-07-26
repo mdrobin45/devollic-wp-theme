@@ -372,7 +372,6 @@ class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
 
        // Add the submenu icon if the item has children
        $submenu_icon = in_array('menu-item-has-children', $classes) ? '<svg xmlns="http://www.w3.org/2000/svg" width="1.7rem" height="1.7rem" viewBox="0 0 24 24"><path fill="black" d="M12 15.121a.997.997 0 0 1-.707-.293L7.05 10.586a1 1 0 0 1 1.414-1.414L12 12.707l3.536-3.535a1 1 0 0 1 1.414 1.414l-4.243 4.242a.997.997 0 0 1-.707.293"/></svg>' : '';
-
        $item_output = $args->before;
        $item_output .= '<a'. $attributes .'>';
        $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
@@ -382,3 +381,57 @@ class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
    }
 }
+
+// Mobile nav menu walker
+class Mobile_Walker_Nav_Menu extends Walker_Nav_Menu {
+
+   // Start the element output.
+   public function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
+       // Add class for parent items.
+       $classes = empty($item->classes) ? array() : (array) $item->classes;
+       if (in_array('menu-item-has-children', $classes)) {
+           $classes[] = 'parent';
+       }
+
+       // Join the classes into a string.
+       $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
+       $class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
+
+       // Add ID attribute.
+       $id = apply_filters('nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args);
+       $id = $id ? ' id="' . esc_attr($id) . '"' : '';
+
+       // Build the HTML.
+       $output .= '<li' . $id . $class_names .'>';
+
+       // Add the link attributes and title.
+       $atts = array();
+       $atts['title']  = !empty($item->attr_title) ? $item->attr_title : '';
+       $atts['target'] = !empty($item->target) ? $item->target : '';
+       $atts['rel']    = !empty($item->xfn) ? $item->xfn : '';
+       $atts['href']   = !empty($item->url) ? $item->url : '';
+
+       $atts = apply_filters('nav_menu_link_attributes', $atts, $item, $args);
+
+       $attributes = '';
+       foreach ($atts as $attr => $value) {
+           if (!empty($value)) {
+               $value = ('href' === $attr) ? esc_url($value) : esc_attr($value);
+               $attributes .= ' ' . $attr . '="' . $value . '"';
+           }
+       }
+
+       // Build the link element.
+       $title = apply_filters('the_title', $item->title, $item->ID);
+
+       $item_output = $args->before;
+       $item_output .= '<a'. $attributes .'>';
+       $item_output .= $args->link_before . $title . $args->link_after;
+       $item_output .= '</a>';
+       $item_output .= $args->after;
+
+       // Merge the output with the current element's output.
+       $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
+   }
+}
+
