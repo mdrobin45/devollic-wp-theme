@@ -19,6 +19,91 @@
 	<?php wp_head(); ?>
 </head>
 <header>
+   <div id="mobile-nav">
+      <div class="mobile-menu-button-wrapper">
+         <div class="logo">
+            <?php echo the_custom_logo(); ?>
+         </div>
+            <div class="menu-button">
+               <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="2rem"
+                  height="2rem"
+                  viewBox="0 0 24 24">
+                  <path
+                     fill="black"
+                     fill-rule="evenodd"
+                     d="M20.75 7a.75.75 0 0 1-.75.75H4a.75.75 0 0 1 0-1.5h16a.75.75 0 0 1 .75.75m0 5a.75.75 0 0 1-.75.75H4a.75.75 0 0 1 0-1.5h16a.75.75 0 0 1 .75.75m0 5a.75.75 0 0 1-.75.75H4a.75.75 0 0 1 0-1.5h16a.75.75 0 0 1 .75.75"
+                     clip-rule="evenodd" />
+               </svg>
+            </div>
+         </div>
+      <ul>
+         <li><a href="#">Home</a></li>
+         <li class="parent">
+            <a href="#">Products</a>
+            <ul>
+               <li><a href="#">Modeflick</a></li>
+               <li><a href="#">Neoskizzle</a></li>
+               <li><a href="#">Bopster</a></li>
+               <li><a href="#">Locobot</a></li>
+               <li><a href="#">Jovaphile</a></li>
+               <li><a href="#">Peloozoid</a></li>
+            </ul>
+         </li>
+         <li class="parent">
+            <a href="#">Services</a>
+            <ul>
+               <li class="parent">
+                  <a href="#">Web Design</a>
+                  <ul>
+                     <li><a href="#">Responsive</a></li>
+                     <li><a href="#">Templates</a></li>
+                  </ul>
+               </li>
+               <li class="parent">
+                  <a href="#">Web Development</a>
+                  <ul>
+                     <li><a href="#">HTML</a></li>
+                     <li><a href="#">CSS</a></li>
+                     <li><a href="#">jQuery</a></li>
+                     <li><a href="#">Ruby on Rails</a></li>
+                     <li><a href="#">PHP</a></li>
+                  </ul>
+               </li>
+               <li class="parent">
+                  <a href="#">Mobile Applications</a>
+                  <ul>
+                     <li><a href="#">Android Devices</a></li>
+                     <li><a href="#">Apple Devices</a></li>
+                     <li><a href="#">Windows Devices</a></li>
+                  </ul>
+               </li>
+               <li class="parent">
+                  <a href="#">Analytics</a>
+                  <ul>
+                     <li><a href="#">Google Analytics</a></li>
+                     <li><a href="#">Mint</a></li>
+                     <li><a href="#">Omniture</a></li>
+                     <li><a href="#">Piwik</a></li>
+                  </ul>
+               </li>
+            </ul>
+         </li>
+         <li class="parent">
+            <a href="#">About Us</a>
+            <ul>
+               <li><a href="#">Our Company</a></li>
+               <li><a href="#">Meet The Team</a></li>
+               <li><a href="#">Office Life</a></li>
+               <li><a href="#">Fun Facts</a></li>
+               <li><a href="#">Testimonials</a></li>
+            </ul>
+         </li>
+         <li><a href="#">Contact</a></li>
+      </ul>
+   </div>
+   <div class="desktop-nav">
    <nav>
       <div class="logo"><a href="<?php echo site_url(); ?>"><img src="<?php echo site_url('/wp-content/uploads/2024/06/devollic-logo.png'); ?>" alt="Logo"></a></div>
       
@@ -28,7 +113,7 @@
          'container' =>'ul',
          'menu_class' => 'NavMenu m-0 p-0',
          'walker' => new Custom_Walker_Nav_Menu(),
-      ) )
+      ));
       ?>
       <div class="d-flex align-items-center">
          <!-- Cart items -->
@@ -233,6 +318,7 @@
          
       </div>
    </nav>
+   </div>
    </header>
 
 <body <?php body_class(); ?>>

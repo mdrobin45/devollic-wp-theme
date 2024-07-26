@@ -50,6 +50,7 @@ function devollic_setup() {
 	register_nav_menus(
 		array(
 			'primary_menu' => esc_html__( 'Primary', 'devollic' ),
+			'mobile_menu' => esc_html__( 'Mobile Menu', 'devollic' ),
 		)
 	);
 
@@ -161,6 +162,7 @@ function devollic_scripts() {
    wp_enqueue_style( 'product-archive-css', get_template_directory_uri().'/assets/css/product-archive.css', [], '1.0.0', 'all' );
    wp_enqueue_style( 'navbar_style', get_template_directory_uri().'/assets/css/navbar.css', [], '1.0.0', 'all' );
    wp_enqueue_style( 'custom_css', get_template_directory_uri().'/assets/css/custom.css', [], '1.0.0', 'all' );
+   wp_enqueue_style( 'mobile-menu-style', get_template_directory_uri().'/assets/css/mobile-menu.css', [], '1.0.0', 'all' );
    wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap', false );
 
    if(is_product()){
@@ -179,6 +181,7 @@ function devollic_scripts() {
    wp_enqueue_script( 'bootstrap-bundle', get_template_directory_uri() . '/assets/js/lib/bootstrap.bundle.min.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'devollic-image-hover-scroll', get_template_directory_uri() . '/assets/js/hover-image-scroll.js', array('jquery'), _S_VERSION, true );
 	wp_enqueue_script( 'devollic-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'mobile-menu-js', get_template_directory_uri() . '/assets/js/mobile-menu.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'fontawesome-kit', 'https://kit.fontawesome.com/62db3e136e.js', array(), _S_VERSION, true );
    
 

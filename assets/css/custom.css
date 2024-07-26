@@ -313,3 +313,18 @@ button.wc-checkout-update-cart-btn.button:disabled[disabled] {
    padding: 10px !important;
    border-radius: 5px !important;
 }
+
+#mobile-nav{
+   display: none;
+}
+.desktop-nav{
+   display: block;
+}
+@media screen and (max-width:1000px) {
+   #mobile-nav{
+      display: block;
+   }
+   .desktop-nav{
+      display: none;
+   }
+}
