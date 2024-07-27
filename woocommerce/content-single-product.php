@@ -158,24 +158,33 @@ if ( post_password_required() ) {
                   </div>
                </div>
                <div class="widget widget-list">
-                  <ul>
-                     <li><span>Last Update</span><?php echo $product->get_date_modified()->date('F j, Y'); ?></li>
-                     <li><span>Created</span><?php echo $product->get_date_created()->date('F j, Y'); ?></li>
-                     <li><span>High Resolution</span>Yes</li>
-                     <li>
-                        <span>Browsers</span>IE11, Firefox, Safari, Opera,
-                        Chrome, Edge
-                     </li>
-                     <li>
-                        <span>Compatible With</span>Bootstrap 4.x <br />Included
-                        PHP Files, <br />HTML Files, CSS, <br />JS Files
-                     </li>
-                     <li><span>Documentation</span>Well Documentation</li>
-                     <li><span>Layout</span>Responsive</li>
-                     <li>
-                     <!-- Tags here -->
-                     </li>
-                  </ul>
+                 
+                  <table class="template-details-template-info-sidebar">
+                     <tr>
+                        <td>Last Update</td>
+                        <td><?php echo $product->get_date_modified()->date('F j, Y'); ?></td>
+                     </tr>
+                     <tr>
+                        <td>Created</td>
+                        <td><?php echo $product->get_date_created()->date('F j, Y'); ?></td>
+                     </tr>
+                     <tr>
+                        <td>High Resolution</td>
+                        <td>Yes</td>
+                     </tr>
+                     <tr>
+                        <td>Browsers</td>
+                        <td>IE11, Firefox, Safari, Opera, Chrome, Edge</td>
+                     </tr>
+                     <tr>
+                        <td>Documentation</td>
+                        <td>Well Documentation</td>
+                     </tr>
+                     <tr>
+                        <td>Layout</td>
+                        <td>Responsive</td>
+                     </tr>
+                  </table>
                </div>
             </div>
          </div>
