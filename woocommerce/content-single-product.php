@@ -53,14 +53,15 @@ if ( post_password_required() ) {
                         >Description</a
                      >
                   </li>
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                      <a
                         class="nav-link"
                         data-toggle="pill"
                         href="#pills-profile"
-                        >Reviews <?php echo $product->get_review_count(); ?></a
+                        >Reviews <?php ; ?></a
                      >
-                  </li>
+                     echo $product->get_review_count()
+                  </li> -->
                   <?php
                   global $product;
 
