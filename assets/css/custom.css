@@ -356,3 +356,15 @@ section#wpfwoofilterswidget-2 {
    position: sticky;
    top: 10%;
 }
+
+a.invoice-download-btn {
+   background: #652FF2;
+   color: #fff;
+   padding: 12px;
+   border-radius: 7px;
+   display: inline-block;
+}
+
+a.invoice-download-btn:hover{
+color: #fff;
+}
