@@ -352,3 +352,7 @@ section#wpfwoofilterswidget-2 {
 #wpfBlock_1 {
    border-bottom: 1px solid #ddd;
 }
+.sidebar-area{
+   position: sticky;
+   top: 10%;
+}
